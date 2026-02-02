@@ -44,7 +44,7 @@ class AnnoncesAdmin {
         if (wp_verify_nonce($_POST["annonces_nonce"] ?? "", "annonces_update")) {
             if (isset($_POST["annonces"])) {
                 update_option("annonces", intval($_POST["annonces"]));
-                echo "<div class='updated'><p>Compteur mis à jour !</p></div>";
+                echo "<div class=\"updated\"><p>Compteur mis à jour !</p></div>";
             }
         }
 

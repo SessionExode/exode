@@ -3,6 +3,7 @@
 namespace Exode\Core;
 
 use Exode\Annonces\AnnoncesFeature;
+use Exode\Buvette\BuvetteFeature;
 
 class Bootloader {
     public function __construct() {
@@ -11,5 +12,6 @@ class Bootloader {
 
     public static function load_features(): void {
         new AnnoncesFeature();
+        new BuvetteFeature();
     }
 }

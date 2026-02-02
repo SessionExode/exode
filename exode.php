@@ -3,7 +3,7 @@
 /*
  * Plugin Name: Exode
  * Description: Main PLugin of the Session Exode App
- * Author: Vianney Hervy
+ * Author: Thibault Chourré & Vianney Hervy
  */
 
 if (!defined("ABSPATH")) {
