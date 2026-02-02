@@ -8,19 +8,6 @@ class AnnoncesAdmin {
     }
 
     public function create_menu(): void {
-        add_menu_page(
-            "Exode",
-            "Exode",
-            "manage_options",
-            "exode",
-            [$this,
-"settings_page"],
-            plugins_url(
-                "assets/icon.svg",
-                dirname(__DIR__, 1)
-            ),
-            0
-        );
         add_submenu_page(
             "exode",
             "Annonces",
@@ -28,15 +15,11 @@ class AnnoncesAdmin {
             "manage_options",
             "exode-annonces",
             [$this,
-"annonces_settings_page"]
+"settings_page"]
         );
     }
 
     public function settings_page(): void {
-        echo "<h1>Bienvenue sur le plugin de la Session Exode</h1>";
-    }
-
-    public function annonces_settings_page(): void {
         if (!current_user_can("manage_options")) {
             return;
         }

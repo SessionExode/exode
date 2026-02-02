@@ -11,6 +11,7 @@ class Bootloader {
     }
 
     public static function load_features(): void {
+        new CoreFeature();
         new AnnoncesFeature();
         new BuvetteFeature();
     }
