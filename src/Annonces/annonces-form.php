@@ -1,6 +1,6 @@
 <?php
 
-namespace Exode\Views;
+namespace Exode\Annonces;
 
 function render_annonces_form(int $current_val): void {
     ?>

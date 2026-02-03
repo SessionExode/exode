@@ -1,8 +1,6 @@
 <?php
 
-namespace Exode\Views;
-
-use Exode\Contacts\Contact;
+namespace Exode\Contacts;
 
 /** @param Contact[] $contacts */
 function render_contacts_form(array $contacts): void {

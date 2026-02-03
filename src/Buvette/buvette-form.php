@@ -1,6 +1,6 @@
 <?php
 
-namespace Exode\Views;
+namespace Exode\Buvette;
 
 function render_buvette_form(bool $open): void {
     ?>
