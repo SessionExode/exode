@@ -13,7 +13,7 @@ class Bootloader {
     }
 
     private function load_scripts(): void {
-        add_action("wp_enqueue_scripts", function () {
+        add_action("wp_enqueue_scripts", function (): void {
             wp_enqueue_style("dashicons");
         });
     }

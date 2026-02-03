@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9567b5b60ed664265cd879bbf3595ea1",
+    "content-hash": "ab4d69f2eda359c57dff9e55001bac54",
     "packages": [],
     "packages-dev": [
         {
@@ -292,6 +292,43 @@
                 }
             ],
             "time": "2024-05-06T16:37:16+00:00"
+        },
+        {
+            "name": "damian-elenbaas/elementor-stubs",
+            "version": "3.31.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/damian-elenbaas/elementor-stubs.git",
+                "reference": "fef2a9b04a59ccac73d11cce3756bbd82e8bcfe7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/damian-elenbaas/elementor-stubs/zipball/fef2a9b04a59ccac73d11cce3756bbd82e8bcfe7",
+                "reference": "fef2a9b04a59ccac73d11cce3756bbd82e8bcfe7",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Damian Elenbaas",
+                    "email": "damianelenbaas2003@gmail.com"
+                }
+            ],
+            "description": "Elementor stubs generated with the PHP Stubs Generator.",
+            "homepage": "https://github.com/damian-elenbaas/elementor-stubs",
+            "keywords": [
+                "elementor",
+                "stubs"
+            ],
+            "support": {
+                "issues": "https://github.com/damian-elenbaas/elementor-stubs/issues",
+                "source": "https://github.com/damian-elenbaas/elementor-stubs/tree/3.31.0"
+            },
+            "time": "2025-08-06T12:44:48+00:00"
         },
         {
             "name": "evenement/evenement",

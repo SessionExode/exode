@@ -2,6 +2,8 @@
 
 namespace Exode\Contacts;
 
+use Elementor\Widgets_Manager;
+
 class ContactsFeature {
     public function __construct() {
         if (is_admin()) {
@@ -9,9 +11,9 @@ class ContactsFeature {
         }
         new ContactsShortcode();
 
-        add_action("elementor/widgets/register", function ($widgets_manager) {
+        add_action("elementor/widgets/register", function (Widgets_Manager $widgets_manager): void {
             require_once __DIR__ . "/ContactsWidget.php";
-            $widgets_manager->regsiter(new ContactsWidget());
+            $widgets_manager->register(new ContactsWidget());
         });
     }
 }
