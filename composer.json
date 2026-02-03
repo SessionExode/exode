@@ -1,4 +1,14 @@
 {
+    "config": {
+        "platform": {
+            "php": "8.0.30"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Exode\\": "src/"
+        }
+    },
     "require-dev": {
         "php-stubs/wordpress-stubs": "^6.9",
         "friendsofphp/php-cs-fixer": "^3.75"
