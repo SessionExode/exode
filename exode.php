@@ -11,8 +11,8 @@ if (!defined("ABSPATH")) {
     exit;
 }
 
-// LOad COmposer Autoloader
-if (file_exists(__DIR . "/vendor/autoload.php")) {
+// Load COmposer Autoloader
+if (file_exists(__DIR__ . "/vendor/autoload.php")) {
     require_once __DIR__ . "/vendor/autoload.php";
 }
 

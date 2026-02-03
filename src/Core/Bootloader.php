@@ -10,7 +10,7 @@ class Bootloader {
         $this->load_features();
     }
 
-    public static function load_features(): void {
+    private function load_features(): void {
         new CoreFeature();
         new AnnoncesFeature();
         new BuvetteFeature();
