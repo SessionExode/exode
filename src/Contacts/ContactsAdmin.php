@@ -23,29 +23,29 @@ class ContactsAdmin {
             return;
         }
 
-        if (wp_verify_nonce($_POST["contact_nonce"] ?? "", "add_contact_action")) {
-            $contacts = get_option("contacts_list", []);
+        /** @var Contact[] $contacts */
+        $contacts = get_option("contacts_list", []);
 
-            $new_contact = [
-                "first_name" => sanitize_text_field($_POST["c_first_name"]),
-                "name" => sanitize_text_field($_POST["c_name"]),
-                "tel" => sanitize_text_field($_POST["c_tel"]),
-                "role" => sanitize_text_field($_POST["c_role"]),
-            ];
-
-            if (!empty($new_contact["name"])) {
-                $contacts[] = $new_contact;
-                update_option("contacts_list", $contacts);
-                echo "<div class='updated'<p>Contact added successfully!</p></div>";
-            } else {
-                echo "hmmm";
-            }
-        } else {
-            echo "ayyy";
+        // Deletion
+        if ($_GET["action"] ?? "" === "delete" && isset($_GET["id"])) {
+            check_admin_referer("delete_contact_" . $_GET["id"]);
+            $contacts = array_filter($contacts, fn ($c) => $c->id !== $_GET["id"]);
+            update_option("contacts_list", $contacts);
+            echo "<div class='updated'><p>Contact supprimé.</p></div>";
         }
 
-        $contacts = get_option("contacts_list", []);
-        require_once dirname(__DIR__) . "/Views/contacts-form.php";
+        // Creation
+        if (wp_verify_nonce($_POST["contact_nonce"] ?? "", "add_contact_action")) {
+            $new_contact = new Contact(
+                sanitize_text_field($_POST["c_first_name"]),
+                sanitize_text_field($_POST["c_name"]),
+                sanitize_text_field($_POST["c_tel"]),
+                sanitize_text_field($_POST["c_role"])
+            );
+            update_option("contacts_list", $contacts);
+        }
+
+        require_once __DIR__ . "/contacts-form.php";
         \Exode\Views\render_contacts_form($contacts);
     }
 }

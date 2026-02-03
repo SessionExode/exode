@@ -32,7 +32,7 @@ class AnnoncesAdmin {
         }
 
         $current_val = get_option("annonces", 0);
-        require_once dirname(__DIR__) . "/Views/annonces-form.php";
+        require_once __DIR__ . "/annonces-form.php";
         \Exode\Views\render_annonces_form($current_val);
     }
 }
