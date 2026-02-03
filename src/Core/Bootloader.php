@@ -4,6 +4,7 @@ namespace Exode\Core;
 
 use Exode\Annonces\AnnoncesFeature;
 use Exode\Buvette\BuvetteFeature;
+use Exode\Contacts\ContactsFeature;
 
 class Bootloader {
     public function __construct() {
@@ -21,5 +22,6 @@ class Bootloader {
         new CoreFeature();
         new AnnoncesFeature();
         new BuvetteFeature();
+        new ContactsFeature();
     }
 }
