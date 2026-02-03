@@ -2,18 +2,18 @@
 
 namespace Exode\Views;
 
-function render_buvette_form(bool $opened): void {
+function render_buvette_form(bool $open): void {
     ?>
 <div class="wrap">
     <h1>Paramètres de la Buvette</h1>
     <form method="post">
-        <?php wp_nonce_field("buvette_opened_update", "buvette_opened_nonce"); ?>
+        <?php wp_nonce_field("buvette_open_update", "buvette_open_nonce"); ?>
         <label>
-            <input type="radio" name="buvette_opened" value="1" <?php checked($opened); ?>>
+            <input type="radio" name="buvette_open" value="1" <?php checked($open); ?>>
             Ouverte
         </label>
         <label>
-            <input type="radio" name="buvette_opened" value="0" <?php checked(!$opened); ?>>
+            <input type="radio" name="buvette_open" value="0" <?php checked(!$open); ?>>
             Fermée
         </label>
         <?php submit_button("Enregistrer"); ?>
