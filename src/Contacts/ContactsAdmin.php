@@ -42,10 +42,11 @@ class ContactsAdmin {
                 sanitize_text_field($_POST["c_tel"]),
                 sanitize_text_field($_POST["c_role"])
             );
+            $contacts[] = $new_contact; // append $new_contact
             update_option("contacts_list", $contacts);
         }
 
         require_once __DIR__ . "/contacts-form.php";
-        \Exode\Views\render_contacts_form($contacts);
+        \Exode\Contacts\render_contacts_form($contacts);
     }
 }

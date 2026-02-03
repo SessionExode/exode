@@ -33,6 +33,6 @@ class BuvetteAdmin {
 
         $open = intval(get_option("buvette_open", 0));
         require_once __DIR__ . "/buvette-form.php";
-        \Exode\Views\render_buvette_form($open);
+        \Exode\Buvette\render_buvette_form($open);
     }
 }
