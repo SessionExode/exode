@@ -8,5 +8,10 @@ class ContactsFeature {
             new ContactsAdmin();
         }
         new ContactsShortcode();
+
+        add_action("elementor/widgets/register", function ($widgets_manager) {
+            require_once __DIR__ . "/ContactsWidget.php";
+            $widgets_manager->regsiter(new ContactsWidget());
+        });
     }
 }
