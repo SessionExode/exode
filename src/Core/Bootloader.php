@@ -2,7 +2,7 @@
 
 namespace Exode\Core;
 
-use Exode\Annonces\AnnoncesFeature;
+use Exode\Announcements\AnnouncementsFeature;
 use Exode\Buvette\BuvetteFeature;
 use Exode\Contacts\ContactsFeature;
 
@@ -20,7 +20,7 @@ class Bootloader {
 
     private function load_features(): void {
         new CoreFeature();
-        new AnnoncesFeature();
+        new AnnouncementsFeature();
         new BuvetteFeature();
         new ContactsFeature();
     }
