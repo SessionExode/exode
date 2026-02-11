@@ -14,8 +14,7 @@ class AnnouncementsAdmin {
             "Announcements",
             "manage_options",
             "exode-announcements",
-            [$this,
-"settings_page"]
+            [$this, "settings_page"]
         );
     }
 
@@ -24,15 +23,37 @@ class AnnouncementsAdmin {
             return;
         }
 
-        if (wp_verify_nonce($_POST["announcements_nonce"] ?? "", "announcements_update")) {
-            if (isset($_POST["announcements"])) {
-                update_option("announcements", intval($_POST["announcements"]));
-                echo "<div class=\"updated\"><p>Compteur mis à jour !</p></div>";
-            }
+        /** @var Announcement[] $announcements */
+        $announcements = get_option("announcements_list", []);
+
+        // Deletion
+        if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["id"])) {
+            check_admin_referer("delete_announcement_" . $_GET["id"]);
+            $announcements = array_filter($announcements, fn ($a) => $a->id !== $_GET["id"]);
+            update_option("announcements_list", $announcements);
+            echo "<div class='updated'><p>Annonces supprimée.</p></div>";
         }
 
-        $current_val = get_option("announcements", 0);
+        // Creation
+        if (wp_verify_nonce($_POST["announcements_nonce"] ?? "", "add_announcement_action")) {
+            $raw_date = $_POST["a_date"] ?? "";
+            $unix_date = $raw_date ? strtotime($raw_date) : time();
+
+            $new_announcement = new Announcement(
+                sanitize_text_field($_POST["a_title"]),
+                sanitize_textarea_field($_POST["a_content"]),
+                $unix_date
+            );
+
+            $announcements[] = $new_announcement;
+
+            // sort by decreasing date (newest first)
+            usort($announcements, fn ($a, $b) => $b->date <=> $a->date);
+            update_option("announcements_list", $announcements);
+            echo "<div class='updated'><p>Annonce ajouté et triée !</p></div>";
+        }
+
         require_once __DIR__ . "/announcements-form.php";
-        \Exode\Announcements\render_announcements_form($current_val);
+        render_announcements_form($announcements);
     }
 }

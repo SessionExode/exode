@@ -8,7 +8,13 @@ class AnnouncementsShortcode {
     }
 
     public function render_shortcode(): string {
-        $val = get_option("announcements", 0);
-        return "<span id=\"announcements\">" . esc_html($val) . "</span>";
+        /** @var Announcement[] $announcements */
+        $announcements = get_option("announcements", []);
+
+        if (empty($announcements)) {
+            return "";
+        }
+
+        return "<span id=\"announcements\">" . esc_html($announcements) . "</span>";
     }
 }
