@@ -39,7 +39,10 @@ function render_announcements_form(array $announcements): void {
                         <td><strong><?php echo esc_html($a->title); ?></strong></td>
                         <td><?php echo nl2br(esc_html($a->content)); ?></td>
                         <td>
-                            <a href="<?php echo wp_nonce_url(admin_url('admin.php?page=exode-announcements&action=delete&id=' . $a->id), 'delete_announcement_' . $a->id); ?>">
+                            <a
+                                href="<?php echo wp_nonce_url(admin_url('admin.php?page=exode-announcements&action=delete&id=' . $a->id), 'delete_announcement_' . $a->id); ?>"
+                                style="color:red"
+                                onclick="<?php echo "return confirm ('supprimer $a->title ?')"; ?>">
                                 Supprimer
                             </a>
                         </td>
