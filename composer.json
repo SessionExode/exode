@@ -26,8 +26,8 @@
     }
   },
   "require-dev": {
-    "php-stubs/wordpress-stubs": "^6.9",
     "friendsofphp/php-cs-fixer": "^3.75",
-    "damian-elenbaas/elementor-stubs": "^3.31"
+    "damian-elenbaas/elementor-stubs": "^3.31",
+    "php-stubs/wordpress-stubs": "^6.9"
   }
 }

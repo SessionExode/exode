@@ -1,4 +1,4 @@
 {
-  "language_server_php_cs_fixer.enabled": true,
-  "language_server_php_cs_fixer.bin": "vendor/bin/php-cs-fixer"
+    "language_server_php_cs_fixer.enabled": true,
+    "language_server_php_cs_fixer.bin": "vendor/bin/php-cs-fixer"
 }

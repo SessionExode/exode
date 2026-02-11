@@ -4,6 +4,8 @@ namespace Exode\Contacts;
 
 use Elementor\Group_Control_Background;
 use Elementor\Group_Control_Typography;
+use Elementor\Group_Control_Border;
+use Elementor\Group_Control_Box_Shadow;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
@@ -12,69 +14,125 @@ class ContactsWidget extends Widget_Base {
         return "exode_contacts_list";
     }
     public function get_title(): string {
-        return "Liste des Contacts Exode";
+        return "Liste des Contacts";
     }
     public function get_icon(): string {
         return "eicon-person";
     }
     public function get_categories(): array {
-        return [ "general" ];
+        return [ "exode" ];
     }
 
     protected function register_controls(): void {
 
-        // --- CONTENT SECTION ---
+        // --- SECTION: CONTENT ---
         $this->start_controls_section('content_section', [
             'label' => 'Contenu',
             'tab' => Controls_Manager::TAB_CONTENT,
         ]);
-        $this->add_control('show_role', [
-            'label' => 'Afficher le rôle',
-            'type' => Controls_Manager::SWITCHER,
-            'default' => 'yes',
-        ]);
+
         $this->end_controls_section();
 
-        // --- CONTAINER STYLE ---
+        // --- SECTION: STYLE CONTAINER (Bounding Box) ---
         $this->start_controls_section('style_container', [
-            'label' => 'Conteneur (Liste)',
+            'label' => 'Conteneur',
             'tab' => Controls_Manager::TAB_STYLE,
         ]);
+
         $this->add_responsive_control('container_padding', [
             'label' => 'Padding',
             'type' => Controls_Manager::DIMENSIONS,
+            "size_units" => ["px", "em", "%"],
             'selectors' => [ '{{WRAPPER}} .exode-contacts-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};' ],
         ]);
+
         $this->add_group_control(Group_Control_Background::get_type(), [
             'name' => 'container_background',
             'selector' => '{{WRAPPER}} .exode-contacts-container',
         ]);
+
+        $this->add_group_control(Group_Control_Border::get_type(), [
+                    'name' => 'container_border',
+                    'selector' => '{{WRAPPER}} .exode-contacts-container',
+                ]);
+
+        $this->add_control('container_border_radius', [
+            'label' => 'Arrondi des angles',
+            'type' => Controls_Manager::DIMENSIONS,
+            'selectors' => [ '{{WRAPPER}} .exode-contacts-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};' ],
+        ]);
+
         $this->end_controls_section();
 
-        // --- ITEMS STYLE ---
+        // --- SECTION: STYLE INIDIVDUAL ITEMS ---
         $this->start_controls_section('style_items', [
             'label' => 'Contacts Individuels',
             'tab' => Controls_Manager::TAB_STYLE,
         ]);
-        $this->add_control('item_color', [
-            'label' => 'Couleur du texte',
-            'type' => Controls_Manager::COLOR,
-            'selectors' => [ '{{WRAPPER}} .exode-contact-item' => 'color: {{VALUE}};' ],
+
+        // Box Model for Items
+        $this->add_responsive_control('item_margin', [
+            'label' => 'Marge (Espacement)',
+            'type' => Controls_Manager::DIMENSIONS,
+            'size_units' => ['px', 'em'],
+            'selectors' => [ '{{WRAPPER}} .exode-contact-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};' ],
         ]);
-        $this->add_group_control(Group_Control_Typography::get_type(), [
-            'name' => 'item_typography',
+
+        $this->add_responsive_control('item_padding', [
+            'label' => 'Padding Interne',
+            'type' => Controls_Manager::DIMENSIONS,
+            'size_units' => ['px', 'em'],
+            'selectors' => [ '{{WRAPPER}} .exode-contact-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};' ],
+        ]);
+
+        $this->add_group_control(Group_Control_Background::get_type(), [
+            'name' => 'item_background',
             'selector' => '{{WRAPPER}} .exode-contact-item',
         ]);
-        $this->add_responsive_control('item_margin', [
-            'label' => 'Espacement entre contacts',
-            'type' => Controls_Manager::SLIDER,
-            'selectors' => [ '{{WRAPPER}} .exode-contact-item:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}};' ],
+
+        $this->add_group_control(Group_Control_Border::get_type(), [
+            'name' => 'item_border',
+            'selector' => '{{WRAPPER}} .exode-contact-item',
         ]);
+
+        $this->add_control('item_border_radius', [
+            'label' => 'Arrondi des angles',
+            'type' => Controls_Manager::DIMENSIONS,
+            'selectors' => [ '{{WRAPPER}} .exode-contact-item' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};' ],
+        ]);
+
+        // Typography & Colors
+        $this->add_control('item_color', [
+            'label' => 'Couleur du Nom',
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [ '{{WRAPPER}} .exode-contact-item' => 'color: {{VALUE}};' ],
+            "separator" => "before",
+        ]);
+
+        $this->add_group_control(Group_Control_Typography::get_type(), [
+            'name' => 'item_typography',
+            "label" => "Typographie du Nom",
+            'selector' => '{{WRAPPER}} .exode-contact-item strong',
+        ]);
+
+        $this->add_control('role_color', [
+            'label' => 'Couleur du Rôle',
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [ '{{WRAPPER}} .contact-role' => 'color: {{VALUE}};' ],
+        ]);
+
+        $this->add_group_control(Group_Control_Typography::get_type(), [
+            'name' => 'role_typography',
+            'label' => 'Typographie du Rôle',
+            'selector' => '{{WRAPPER}} .contact-role',
+        ]);
+
         $this->end_controls_section();
     }
 
     protected function render(): void {
         $settings = $this->get_settings_for_display();
+        /** @var Contact[] $contacts */
         $contacts = get_option("contacts_list", []);
 
         if (empty($contacts)) {
@@ -86,9 +144,8 @@ class ContactsWidget extends Widget_Base {
         foreach ($contacts as $c) {
             echo '<div class="exode-contact-item">';
             echo '<strong>' . esc_html($c->first_name) . ' ' . esc_html($c->name) . '</strong>';
-            if ($settings['show_role'] === 'yes') {
-                echo ' <span class="contact-role">- ' . esc_html($c->role) . '</span>';
-            }
+            echo ' <span class="contact-role">- ' . esc_html($c->role) . '</span>';
+            echo ' <a href="tel:' . esc_attr($c->tel) . '" class="contact-tel">- ' . esc_html($c->tel) . '</a>';
             echo '</div>';
         }
         echo '</div>';
