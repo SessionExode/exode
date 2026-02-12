@@ -3,7 +3,7 @@
 /*
  * Plugin Name: Exode
  * Plugin URI: https://github.com/SessionExode/exode
- * Text DOmain: exode
+ * Text Domain: exode
  * Domain Path: /lang
  *
  * Description: Main plugin of the Session Exode App

@@ -29,9 +29,9 @@ class ContactsAdmin {
         // Deletion
         if ($_GET["action"] ?? "" === "delete" && isset($_GET["id"])) {
             check_admin_referer("delete_contact_" . $_GET["id"]);
-            $contacts = array_filter($contacts, fn ($c) => $c->id !== $_GET["id"]);
+            $contacts = array_filter($contacts, fn($c) => $c->id !== $_GET["id"]);
             update_option("contacts_list", $contacts);
-            echo "<div class='updated'><p>Contact supprimé.</p></div>";
+            echo "<div class='updated'><p>" . __("Contact deleted", "exode") . ".</p></div>";
         }
 
         // Creation

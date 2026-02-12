@@ -10,11 +10,11 @@ function render_buvette_form(bool $open): void {
             <?php wp_nonce_field("buvette_open_update", "buvette_open_nonce"); ?>
             <label>
                 <input type="radio" name="buvette_open" value="1" <?php checked($open); ?>>
-                <?php __("Open", "exode"); ?>
+                <?php _e("Open", "exode"); ?>
             </label>
             <label>
                 <input type="radio" name="buvette_open" value="0" <?php checked(!$open); ?>>
-                <?php __("Closed", "exode"); ?>
+                <?php _e("Closed", "exode"); ?>
             </label>
             <?php submit_button(__("Save", "exode")); ?>
         </form>
