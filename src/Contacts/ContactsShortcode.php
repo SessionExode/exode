@@ -10,6 +10,6 @@ class ContactsShortcode {
     public function render_shortcode(): string {
         $contacts = get_option("contacts_list", []);
         $count = is_array($contacts) ? count($contacts) : 0;
-        return "<span id=\"contacts\">$count</span>";
+        return '<span id="contacts">$count</span>';
     }
 }

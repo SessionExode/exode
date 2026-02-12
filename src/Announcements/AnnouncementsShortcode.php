@@ -15,6 +15,6 @@ class AnnouncementsShortcode {
             return "";
         }
 
-        return "<span id=\"announcements\">" . esc_html($announcements) . "</span>";
+        return '<span id="announcements">' . esc_html($announcements) . "</span>";
     }
 }

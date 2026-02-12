@@ -13,8 +13,7 @@ class CoreAdmin {
             "Exode",
             "manage_options",
             "exode",
-            [$this,
-"settings_page"],
+            [$this, "settings_page"],
             plugins_url(
                 "assets/icon.svg",
                 dirname(__DIR__, 1)
@@ -24,6 +23,6 @@ class CoreAdmin {
     }
 
     public function settings_page(): void {
-        echo "<div class=\"wrap\"><h1>Bienvenue sur le plugin de la Session Exode</h1></div>";
+        echo '<div class="wrap"><h1>Bienvenue sur le plugin de la Session Exode</h1></div>';
     }
 }

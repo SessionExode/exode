@@ -29,9 +29,9 @@ class AnnouncementsAdmin {
         // Deletion
         if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["id"])) {
             check_admin_referer("delete_announcement_" . $_GET["id"]);
-            $announcements = array_filter($announcements, fn ($a) => $a->id !== $_GET["id"]);
+            $announcements = array_filter($announcements, fn($a) => $a->id !== $_GET["id"]);
             update_option("announcements_list", $announcements);
-            echo "<div class='updated'><p>Annonces supprimée.</p></div>";
+            echo ("<div class='updated'><p>" . __("Announcement deleted", "exode") . "</p></div>");
         }
 
         // Creation
@@ -48,9 +48,9 @@ class AnnouncementsAdmin {
             $announcements[] = $new_announcement;
 
             // sort by decreasing date (newest first)
-            usort($announcements, fn ($a, $b) => $b->date <=> $a->date);
+            usort($announcements, fn($a, $b) => $b->date <=> $a->date);
             update_option("announcements_list", $announcements);
-            echo "<div class='updated'><p>Annonce ajouté et triée !</p></div>";
+            echo "<div class='updated'><p>" . __("Announcement added and sorted !", "exode") . "</p></div>";
         }
 
         require_once __DIR__ . "/announcements-form.php";

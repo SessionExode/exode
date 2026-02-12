@@ -14,8 +14,7 @@ class BuvetteAdmin {
             "Buvette",
             "manage_options",
             "exode-buvette",
-            [$this,
-"settings_page"]
+            [$this, "settings_page"]
         );
     }
 
@@ -27,7 +26,7 @@ class BuvetteAdmin {
         if (wp_verify_nonce($_POST["buvette_open_nonce"] ?? "", "buvette_open_update")) {
             if (isset($_POST["buvette_open"])) {
                 update_option("buvette_open", intval($_POST["buvette_open"]));
-                echo "<div class=\"updated\"><p>Compteur mis à jour !</p></div>";
+                echo '<div class="updated"><p>' . __("Status updated !", "exode") . "</p></div>";
             }
         }
 
