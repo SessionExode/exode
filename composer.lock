@@ -4,9 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b81721f986977b2712d42a57ef7ad8ef",
+    "content-hash": "ab70a0f487037edfc2e2cd9d9ac97ba3",
     "packages": [],
     "packages-dev": [
+        {
+            "name": "arifpavel/elementor-stubs",
+            "version": "3.1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/arifpavel/elementor-stubs.git",
+                "reference": "69f022cc861e29003011fff99acbb2a79f06f0eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/arifpavel/elementor-stubs/zipball/69f022cc861e29003011fff99acbb2a79f06f0eb",
+                "reference": "69f022cc861e29003011fff99acbb2a79f06f0eb",
+                "shasum": ""
+            },
+            "require-dev": {
+                "ext-gettext": "*",
+                "giacocorsiglia/stubs-generator": "^0.5.0",
+                "php": "^7.1"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Arif Pavel",
+                    "email": "pavelpatiya@gmail.com"
+                }
+            ],
+            "description": "Elementor function, class, and global variable declaration stubs for easier static analysis.",
+            "homepage": "https://github.com/arifpavel/elementor-stubs",
+            "keywords": [
+                "elementor",
+                "static analysis"
+            ],
+            "support": {
+                "issues": "https://github.com/arifpavel/elementor-stubs/issues",
+                "source": "https://github.com/arifpavel/elementor-stubs/tree/3.1.4.1"
+            },
+            "time": "2021-04-05T11:32:53+00:00"
+        },
         {
             "name": "clue/ndjson-react",
             "version": "v1.3.0",
@@ -292,43 +334,6 @@
                 }
             ],
             "time": "2024-05-06T16:37:16+00:00"
-        },
-        {
-            "name": "damian-elenbaas/elementor-stubs",
-            "version": "3.31.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/damian-elenbaas/elementor-stubs.git",
-                "reference": "fef2a9b04a59ccac73d11cce3756bbd82e8bcfe7"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/damian-elenbaas/elementor-stubs/zipball/fef2a9b04a59ccac73d11cce3756bbd82e8bcfe7",
-                "reference": "fef2a9b04a59ccac73d11cce3756bbd82e8bcfe7",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Damian Elenbaas",
-                    "email": "damianelenbaas2003@gmail.com"
-                }
-            ],
-            "description": "Elementor stubs generated with the PHP Stubs Generator.",
-            "homepage": "https://github.com/damian-elenbaas/elementor-stubs",
-            "keywords": [
-                "elementor",
-                "stubs"
-            ],
-            "support": {
-                "issues": "https://github.com/damian-elenbaas/elementor-stubs/issues",
-                "source": "https://github.com/damian-elenbaas/elementor-stubs/tree/3.31.0"
-            },
-            "time": "2025-08-06T12:44:48+00:00"
         },
         {
             "name": "evenement/evenement",

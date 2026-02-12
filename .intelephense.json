@@ -1,0 +1,6 @@
+{
+	"environment": {
+		"phpVersion": "8.0.30"
+	},
+	"stubs": ["wordpress", "standard", "Core"]
+}
