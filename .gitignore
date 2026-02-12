@@ -2,6 +2,7 @@ dist/
 vendor/
 
 lang/*.mo
+lang/*.po~
 
 .php-cs-fixer.cache
 

@@ -14,7 +14,7 @@ function render_announcements_form(array $announcements): void {
             <p><input type="text" name="a_title" placeholder="<?php _e("Title", "exode"); ?>" class="regular-text" required></p>
             <p><textarea name="a_content" placeholder="<?php _e("Announcement content", "exode"); ?>" rows="3" class="large-text" required></textarea></p>
             <p>
-                <label for="a_date"><?php _e("Date (Optionnal)", "exode"); ?> : </label><br>
+                <label for="a_date"><?php _e("Date (Optional)", "exode"); ?> : </label><br>
                 <input type="datetime-local" name="a_date" value="<?php echo date('Y-m-d\TH:i'); ?>">
             </p>
             <?php submit_button(__("Create", "exode")); ?>
