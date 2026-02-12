@@ -10,13 +10,13 @@ function render_buvette_form(bool $open): void {
             <?php wp_nonce_field("buvette_open_update", "buvette_open_nonce"); ?>
             <label>
                 <input type="radio" name="buvette_open" value="1" <?php checked($open); ?>>
-                Ouverte
+                <?php __("Open", "exode"); ?>
             </label>
             <label>
                 <input type="radio" name="buvette_open" value="0" <?php checked(!$open); ?>>
-                Fermée
+                <?php __("Closed", "exode"); ?>
             </label>
-            <?php submit_button("Enregistrer"); ?>
+            <?php submit_button(__("Save", "exode")); ?>
         </form>
     </div>
 <?php

@@ -10,27 +10,27 @@ function render_contacts_form(array $contacts): void {
         <form method="post">
             <?php wp_nonce_field("add_contact_action", "contact_nonce"); ?>
             <h3><?php _e("New Contact"); ?></h3>
-            <p><input type="text" name="c_first_name" placeholder="Prénom" required></p>
-            <p><input type="text" name="c_name" placeholder="Nom" required></p>
+            <p><input type="text" name="c_first_name" placeholder="<?php _e("First name", "exode"); ?>" required></p>
+            <p><input type="text" name="c_name" placeholder="<?php _e("Name", "exode"); ?>" required></p>
             <p><input type="tel" name="c_tel" placeholder="Tel" required></p>
             <p><input type="text" name="c_role" placeholder="Role" required></p>
-            <?php submit_button("Ajouter le contact"); ?>
+            <?php submit_button(__("Create", "exode")); ?>
         </form>
 
         <table class="wp-list-table widefat fixed striped">
             <thead>
                 <tr>
-                    <th>Prénom</th>
-                    <th>Nom</th>
-                    <th>Téléphone</th>
-                    <th>Rôle</th>
+                    <th><?php _e("First name", "exode"); ?></th>
+                    <th><?php _e("Name", "exode"); ?></th>
+                    <th><?php _e("Phone Number", "exode"); ?></th>
+                    <th><?php _e("Role", "exode"); ?></th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <?php if (empty($contacts)): ?>
                     <tr>
-                        <td colspan="5">Aucun contact trouvé.</td>
+                        <td colspan="5"><?php _e("No contact found.", "exode"); ?></td>
                     </tr>
                 <?php else: ?>
                     <?php foreach ($contacts as $c): ?>
@@ -43,8 +43,8 @@ function render_contacts_form(array $contacts): void {
                                 <a
                                     href="<?php echo wp_nonce_url(admin_url('admin.php?page=exode-contacts&action=delete&id=' . $c->id), 'delete_contact_' . $c->id); ?>"
                                     style="color:red"
-                                    onclick="<?php echo "return confirm ('Supprimer $c->first_name $c->name ?')"; ?>">
-                                    Supprimer
+                                    onclick="<?php echo "return confirm ('" . __('Delete', 'exode') . " "  . $c->first_name . " " . $c->name . "?')"; ?>">
+                                    <?php _e("Delete", "exode"); ?>
                                 </a>
                             </td>
                         </tr>

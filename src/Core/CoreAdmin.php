@@ -23,6 +23,6 @@ class CoreAdmin {
     }
 
     public function settings_page(): void {
-        echo '<div class="wrap"><h1>Bienvenue sur le plugin de la Session Exode</h1></div>';
+        echo '<div class="wrap"><h1>' . __("Welcome on the Exode plugin", "exode") . '</h1></div>';
     }
 }

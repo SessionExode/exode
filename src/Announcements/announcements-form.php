@@ -11,10 +11,10 @@ function render_announcements_form(array $announcements): void {
         <form method="post">
             <?php wp_nonce_field("add_announcement_action", "announcements_nonce"); ?>
             <h3><?php _e("New Announcement", "exode"); ?></h3>
-            <p><input type="text" name="a_title" placeholder="Titre" class="regular-text" required></p>
+            <p><input type="text" name="a_title" placeholder="<?php _e("Title", "exode"); ?>" class="regular-text" required></p>
             <p><textarea name="a_content" placeholder="<?php _e("Announcement content", "exode"); ?>" rows="3" class="large-text" required></textarea></p>
             <p>
-                <label for="a_date">Date (Optionnel) : </label><br>
+                <label for="a_date"><?php _e("Date (Optionnal)", "exode"); ?> : </label><br>
                 <input type="datetime-local" name="a_date" value="<?php echo date('Y-m-d\TH:i'); ?>">
             </p>
             <?php submit_button(__("Create", "exode")); ?>
@@ -23,10 +23,10 @@ function render_announcements_form(array $announcements): void {
         <table class="wp-list widefat fixed striped">
             <thead>
                 <tr>
-                    <th>Date</th>
-                    <th>Titre</th>
-                    <th>Contenu</th>
-                    <th>Actions</th>
+                    <th><?php _e("Date", "exode"); ?></th>
+                    <th><?php _e("Title", "exode"); ?></th>
+                    <th><?php _e("Content", "exode"); ?></th>
+                    <th><?php _e("Actions", "exode"); ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -44,8 +44,8 @@ function render_announcements_form(array $announcements): void {
                                 <a
                                     href="<?php echo wp_nonce_url(admin_url('admin.php?page=exode-announcements&action=delete&id=' . $a->id), 'delete_announcement_' . $a->id); ?>"
                                     style="color:red"
-                                    onclick="<?php echo "return confirm ('supprimer $a->title ?')"; ?>">
-                                    Supprimer
+                                    onclick="<?php echo "return confirm ('" . __("Delete", "exode") . " " . $a->title . "?')"; ?>">
+                                    <?php _e("Delete", "exode"); ?>
                                 </a>
                             </td>
                         </tr>
