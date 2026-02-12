@@ -1,4 +1,7 @@
 dist/
 vendor/
+
+*.mo
+
 .php-cs-fixer.cache
 

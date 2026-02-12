@@ -1,0 +1,199 @@
+# Copyright (C) 2026 Thibault Chourré & Vianney Hervy
+# This file is distributed under the same license as the Exode plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Exode\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/exode\n"
+"POT-Creation-Date: 2026-02-12T17:58:21+00:00\n"
+"PO-Revision-Date: 2026-02-12 18:27+0100\n"
+"Last-Translator:  <vian.hervy@gmail.com>\n"
+"Language-Team: French <traduc@traduc.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: exode\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. Plugin Name of the plugin
+#: exode.php
+msgid "Exode"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: exode.php
+msgid "https://github.com/SessionExode/exode"
+msgstr ""
+
+#. Description of the plugin
+#: exode.php
+msgid "Main plugin of the Session Exode App"
+msgstr ""
+
+#. Author of the plugin
+#: exode.php
+msgid "Thibault Chourré & Vianney Hervy"
+msgstr ""
+
+#: src/Announcements/announcements-form.php:9
+msgid "Manage Announcements"
+msgstr ""
+
+#: src/Announcements/announcements-form.php:13
+msgid "New Announcement"
+msgstr ""
+
+#: src/Announcements/announcements-form.php:15
+msgid "Announcement content"
+msgstr ""
+
+#: src/Announcements/announcements-form.php:20
+msgid "Create"
+msgstr ""
+
+#: src/Announcements/announcements-form.php:35
+msgid "No announcement found."
+msgstr ""
+
+#: src/Announcements/AnnouncementsAdmin.php:34
+msgid "Announcement deleted"
+msgstr ""
+
+#: src/Announcements/AnnouncementsAdmin.php:53
+msgid "Announcement added and sorted !"
+msgstr ""
+
+#: src/Buvette/buvette-form.php:8
+msgid "Buvette Settings"
+msgstr ""
+
+#: src/Buvette/BuvetteAdmin.php:29
+msgid "Status updated !"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:16
+msgid "Buvette Status"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:29 src/Contacts/ContactsWidget.php:29
+msgid "Content"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:33
+msgid "Open Text"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:35
+msgid "Buvette ouverte"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:38
+msgid "Closed Text"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:40
+msgid "Buvette fermée"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:43
+msgid "Icon"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:52
+msgid "Layout"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:55
+msgid "Horizontal"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:56
+msgid "Vertical"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:68
+msgid "Global Style"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:76
+msgid "Icon Spacing"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:88
+msgid "Open State"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:92 src/Buvette/BuvetteWidget.php:109
+msgid "Color (Text & Icon)"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:105
+msgid "Closed State"
+msgstr ""
+
+#: src/Contacts/ContactsWidget.php:16
+msgid "Contact List"
+msgstr ""
+
+#: src/Contacts/ContactsWidget.php:34
+msgid "Separator Character"
+msgstr ""
+
+#: src/Contacts/ContactsWidget.php:37
+msgid "ex: - or |"
+msgstr ""
+
+#: src/Contacts/ContactsWidget.php:44
+msgid "Container"
+msgstr ""
+
+#: src/Contacts/ContactsWidget.php:48 src/Contacts/ContactsWidget.php:86
+msgid "Margin"
+msgstr ""
+
+#: src/Contacts/ContactsWidget.php:54 src/Contacts/ContactsWidget.php:93
+msgid "Padding"
+msgstr ""
+
+#: src/Contacts/ContactsWidget.php:71 src/Contacts/ContactsWidget.php:110
+msgid "Border Radius"
+msgstr ""
+
+#: src/Contacts/ContactsWidget.php:80
+msgid "Individual Contacts"
+msgstr ""
+
+#: src/Contacts/ContactsWidget.php:117
+msgid "Names"
+msgstr ""
+
+#: src/Contacts/ContactsWidget.php:122 src/Contacts/ContactsWidget.php:138
+#: src/Contacts/ContactsWidget.php:154 src/Contacts/ContactsWidget.php:170
+msgid "Color"
+msgstr ""
+
+#: src/Contacts/ContactsWidget.php:128 src/Contacts/ContactsWidget.php:144
+#: src/Contacts/ContactsWidget.php:160
+msgid "Typography"
+msgstr ""
+
+#: src/Contacts/ContactsWidget.php:133
+msgid "Roles"
+msgstr ""
+
+#: src/Contacts/ContactsWidget.php:149
+msgid "Phones"
+msgstr ""
+
+#: src/Contacts/ContactsWidget.php:165
+msgid "Separators"
+msgstr ""
+
+#: src/Contacts/ContactsWidget.php:175
+msgid "Spacing (Left/right)"
+msgstr ""
+
+#: src/Contacts/ContactsWidget.php:193
+msgid "No contacts found"
+msgstr ""

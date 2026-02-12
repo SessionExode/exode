@@ -1,33 +1,39 @@
 {
-  "scripts": {
-    "format": "PHP_CS_FIXER_IGNORE_ENV=1 php-cs-fixer fix src",
-    "phpactor": "phpactor status",
-    "build:clear": "rm -rf dist",
-    "build:prepare": "mkdir -p dist",
-    "build:prod-deps": "composer install --no-dev --optimize-autoloader",
-    "build:zip": "zip -r dist/exode.zip exode.php assets src vendor",
-    "build:restore": "composer install",
-    "package": [
-      "@build:clear",
-      "@build:prepare",
-      "@build:prod-deps",
-      "@build:zip",
-      "@build:restore"
-    ]
-  },
-  "config": {
-    "platform": {
-      "php": "8.0.30"
-    }
-  },
-  "autoload": {
-    "psr-4": {
-      "Exode\\": "src/"
-    }
-  },
-  "require-dev": {
-    "friendsofphp/php-cs-fixer": "^3.75",
-    "php-stubs/wordpress-stubs": "^6.9",
-    "arifpavel/elementor-stubs": "^3.1"
-  }
+	"scripts": {
+		"format": "PHP_CS_FIXER_IGNORE_ENV=1 php-cs-fixer fix src",
+		"phpactor": "phpactor status",
+		"build:clear": "rm -rf dist",
+		"build:prepare": "mkdir -p dist",
+		"build:prod-deps": "composer install --no-dev --optimize-autoloader",
+		"build:zip": "zip -r dist/exode.zip exode.php assets src vendor",
+		"build:restore": "composer install",
+		"translate:generate": "wp i18n make-pot . lang/exode.pot",
+		"translate:merge": "msgmerge --update lang/exode-fr_FR.po lang/exode.pot",
+		"translate:compile": "msgfmt lang/exode-fr_FR.po -o lang/exode-fr_FR.mo",
+		"package": [
+			"@translate:generate",
+			"@translate:merge",
+			"@translate:compile",
+			"@build:clear",
+			"@build:prepare",
+			"@build:prod-deps",
+			"@build:zip",
+			"@build:restore"
+		]
+	},
+	"config": {
+		"platform": {
+			"php": "8.0.30"
+		}
+	},
+	"autoload": {
+		"psr-4": {
+			"Exode\\": "src/"
+		}
+	},
+	"require-dev": {
+		"friendsofphp/php-cs-fixer": "^3.75",
+		"php-stubs/wordpress-stubs": "^6.9",
+		"arifpavel/elementor-stubs": "^3.1"
+	}
 }
