@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Exode\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/exode\n"
-"POT-Creation-Date: 2026-02-12T18:29:01+00:00\n"
+"POT-Creation-Date: 2026-02-17T17:48:06+00:00\n"
 "PO-Revision-Date: 2026-02-12 18:27+0100\n"
 "Last-Translator:  <vian.hervy@gmail.com>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -122,7 +122,7 @@ msgid "Open Text"
 msgstr ""
 
 #: src/Buvette/BuvetteWidget.php:35
-msgid "Buvette ouverte"
+msgid "Buvette open"
 msgstr ""
 
 #: src/Buvette/BuvetteWidget.php:38
@@ -130,7 +130,7 @@ msgid "Closed Text"
 msgstr ""
 
 #: src/Buvette/BuvetteWidget.php:40
-msgid "Buvette fermée"
+msgid "Buvette closed"
 msgstr ""
 
 #: src/Buvette/BuvetteWidget.php:43

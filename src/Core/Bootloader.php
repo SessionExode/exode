@@ -5,6 +5,7 @@ namespace Exode\Core;
 use Exode\Announcements\AnnouncementsFeature;
 use Exode\Buvette\BuvetteFeature;
 use Exode\Contacts\ContactsFeature;
+use Exode\RedirectDesktop\RedirectDesktopFeature;
 
 class Bootloader {
     public function __construct() {
@@ -13,7 +14,7 @@ class Bootloader {
     }
 
     private function load_scripts(): void {
-        add_action("wp_enqueue_scripts", fn () => wp_enqueue_style("dashicons"));
+        add_action("wp_enqueue_scripts", fn() => wp_enqueue_style("dashicons"));
     }
 
     private function load_features(): void {
@@ -21,5 +22,6 @@ class Bootloader {
         new AnnouncementsFeature();
         new BuvetteFeature();
         new ContactsFeature();
+        new RedirectDesktopFeature();
     }
 }

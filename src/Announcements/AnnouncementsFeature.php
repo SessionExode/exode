@@ -7,6 +7,5 @@ class AnnouncementsFeature {
         if (is_admin()) {
             new AnnouncementsAdmin();
         }
-        new AnnouncementsShortcode();
     }
 }

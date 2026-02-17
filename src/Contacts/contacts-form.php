@@ -6,7 +6,7 @@ namespace Exode\Contacts;
 function render_contacts_form(array $contacts): void {
 ?>
     <div class="wrap">
-        <h1>Contacts</h1>
+        <h1>Contacts (<?php echo count($contacts); ?>)</h1>
         <form method="post">
             <?php wp_nonce_field("add_contact_action", "contact_nonce"); ?>
             <h3><?php _e("New Contact"); ?></h3>

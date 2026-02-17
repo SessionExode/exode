@@ -32,12 +32,12 @@ class BuvetteWidget extends Widget_Base {
         $this->add_control('text_open', [
             'label' => __('Open Text', 'exode'),
             'type' => Controls_Manager::TEXT,
-            'default' => __('Buvette ouverte', 'exode'),
+            'default' => __('Buvette open', 'exode'),
         ]);
         $this->add_control('text_closed', [
             'label' => __('Closed Text', 'exode'),
             'type' => Controls_Manager::TEXT,
-            'default' => __('Buvette fermée', 'exode'),
+            'default' => __('Buvette closed', 'exode'),
         ]);
         $this->add_control('selected_icon', [
             'label' => __('Icon', 'exode'),

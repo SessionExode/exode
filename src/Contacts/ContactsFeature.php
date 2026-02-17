@@ -9,7 +9,6 @@ class ContactsFeature {
         if (is_admin()) {
             new ContactsAdmin();
         }
-        new ContactsShortcode();
 
         add_action(
             "elementor/widgets/register",

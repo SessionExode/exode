@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-12T18:29:01+00:00\n"
+"POT-Creation-Date: 2026-02-17T18:56:29+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: exode\n"
@@ -122,7 +122,7 @@ msgid "Open Text"
 msgstr ""
 
 #: src/Buvette/BuvetteWidget.php:35
-msgid "Buvette ouverte"
+msgid "Buvette open"
 msgstr ""
 
 #: src/Buvette/BuvetteWidget.php:38
@@ -130,7 +130,7 @@ msgid "Closed Text"
 msgstr ""
 
 #: src/Buvette/BuvetteWidget.php:40
-msgid "Buvette fermée"
+msgid "Buvette closed"
 msgstr ""
 
 #: src/Buvette/BuvetteWidget.php:43
