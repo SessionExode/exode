@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Exode\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/exode\n"
-"POT-Creation-Date: 2026-02-17T17:48:06+00:00\n"
+"POT-Creation-Date: 2026-02-18T00:55:42+00:00\n"
 "PO-Revision-Date: 2026-02-12 18:27+0100\n"
 "Last-Translator:  <vian.hervy@gmail.com>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -45,7 +45,8 @@ msgid "New Announcement"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:14
-#: src/Announcements/announcements-form.php:27
+#: src/Announcements/announcements-form.php:27 src/Events/events-form.php:18
+#: src/Events/events-form.php:59
 msgid "Title"
 msgstr ""
 
@@ -58,7 +59,7 @@ msgid "Date (Optional)"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:20
-#: src/Contacts/contacts-form.php:17
+#: src/Contacts/contacts-form.php:17 src/Events/events-form.php:52
 msgid "Create"
 msgstr ""
 
@@ -67,11 +68,12 @@ msgid "Date"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:28 src/Buvette/BuvetteWidget.php:29
-#: src/Contacts/ContactsWidget.php:29
+#: src/Contacts/ContactsWidget.php:29 src/Events/events-form.php:26
+#: src/Events/events-form.php:60
 msgid "Content"
 msgstr ""
 
-#: src/Announcements/announcements-form.php:29
+#: src/Announcements/announcements-form.php:29 src/Events/events-form.php:62
 msgid "Actions"
 msgstr ""
 
@@ -82,6 +84,7 @@ msgstr ""
 #: src/Announcements/announcements-form.php:47
 #: src/Announcements/announcements-form.php:48
 #: src/Contacts/contacts-form.php:46 src/Contacts/contacts-form.php:47
+#: src/Events/events-form.php:83 src/Events/events-form.php:84
 msgid "Delete"
 msgstr ""
 
@@ -261,4 +264,40 @@ msgstr ""
 
 #: src/Core/CoreAdmin.php:26
 msgid "Welcome on the Exode plugin"
+msgstr ""
+
+#: src/Events/events-form.php:10
+msgid "Manage Events"
+msgstr ""
+
+#: src/Events/events-form.php:14
+msgid "New Event"
+msgstr ""
+
+#: src/Events/events-form.php:29
+msgid "Event content"
+msgstr ""
+
+#: src/Events/events-form.php:35 src/Events/events-form.php:58
+msgid "Start - End"
+msgstr ""
+
+#: src/Events/events-form.php:44 src/Events/events-form.php:61
+msgid "Location"
+msgstr ""
+
+#: src/Events/events-form.php:68
+msgid "No event found."
+msgstr ""
+
+#: src/Events/EventsAdmin.php:35
+msgid "Event deleted"
+msgstr ""
+
+#: src/Events/EventsAdmin.php:57
+msgid "Event added and sorted !"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:12
+msgid "Next Event"
 msgstr ""

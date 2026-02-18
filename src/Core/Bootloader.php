@@ -5,6 +5,7 @@ namespace Exode\Core;
 use Exode\Announcements\AnnouncementsFeature;
 use Exode\Buvette\BuvetteFeature;
 use Exode\Contacts\ContactsFeature;
+use Exode\Events\EventsFeature;
 use Exode\RedirectDesktop\RedirectDesktopFeature;
 
 class Bootloader {
@@ -22,6 +23,7 @@ class Bootloader {
         new AnnouncementsFeature();
         new BuvetteFeature();
         new ContactsFeature();
+        new EventsFeature();
         new RedirectDesktopFeature();
     }
 }
