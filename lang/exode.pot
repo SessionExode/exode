@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-19T19:34:39+00:00\n"
+"POT-Creation-Date: 2026-02-19T20:40:30+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: exode\n"
@@ -46,7 +46,8 @@ msgstr ""
 #: src/Announcements/announcements-form.php:27
 #: src/Events/events-form.php:22
 #: src/Events/events-form.php:80
-#: src/Events/NextEventWidget.php:149
+#: src/Events/NextEventWidget.php:46
+#: src/Events/NextEventWidget.php:170
 msgid "Title"
 msgstr ""
 
@@ -65,7 +66,7 @@ msgid "Create"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:26
-#: src/Events/NextEventWidget.php:181
+#: src/Events/NextEventWidget.php:73
 msgid "Date"
 msgstr ""
 
@@ -74,7 +75,6 @@ msgstr ""
 #: src/Contacts/ContactsWidget.php:29
 #: src/Events/events-form.php:30
 #: src/Events/events-form.php:81
-#: src/Events/NextEventWidget.php:33
 msgid "Content"
 msgstr ""
 
@@ -230,19 +230,18 @@ msgstr ""
 
 #: src/Contacts/ContactsWidget.php:48
 #: src/Contacts/ContactsWidget.php:86
-#: src/Events/NextEventWidget.php:113
 msgid "Margin"
 msgstr ""
 
 #: src/Contacts/ContactsWidget.php:54
 #: src/Contacts/ContactsWidget.php:93
-#: src/Events/NextEventWidget.php:96
+#: src/Events/NextEventWidget.php:126
 msgid "Padding"
 msgstr ""
 
 #: src/Contacts/ContactsWidget.php:71
 #: src/Contacts/ContactsWidget.php:110
-#: src/Events/NextEventWidget.php:132
+#: src/Events/NextEventWidget.php:153
 msgid "Border Radius"
 msgstr ""
 
@@ -258,11 +257,8 @@ msgstr ""
 #: src/Contacts/ContactsWidget.php:138
 #: src/Contacts/ContactsWidget.php:154
 #: src/Contacts/ContactsWidget.php:170
-#: src/Events/NextEventWidget.php:155
-#: src/Events/NextEventWidget.php:187
-#: src/Events/NextEventWidget.php:229
-#: src/Events/NextEventWidget.php:271
-#: src/Events/NextEventWidget.php:302
+#: src/Events/NextEventWidget.php:175
+#: src/Events/NextEventWidget.php:194
 msgid "Color"
 msgstr ""
 
@@ -319,7 +315,6 @@ msgstr ""
 
 #: src/Events/events-form.php:56
 #: src/Events/events-form.php:82
-#: src/Events/NextEventWidget.php:223
 msgid "Location"
 msgstr ""
 
@@ -348,77 +343,62 @@ msgstr ""
 msgid "Next Event"
 msgstr ""
 
+#: src/Events/NextEventWidget.php:33
+msgid "Global"
+msgstr ""
+
 #: src/Events/NextEventWidget.php:38
-msgid "Show Title"
-msgstr ""
-
-#: src/Events/NextEventWidget.php:40
-#: src/Events/NextEventWidget.php:49
-#: src/Events/NextEventWidget.php:58
-#: src/Events/NextEventWidget.php:67
-msgid "Yes"
-msgstr ""
-
-#: src/Events/NextEventWidget.php:41
-#: src/Events/NextEventWidget.php:50
-#: src/Events/NextEventWidget.php:59
-#: src/Events/NextEventWidget.php:68
-msgid "No"
-msgstr ""
-
-#: src/Events/NextEventWidget.php:47
-msgid "Show Description"
-msgstr ""
-
-#: src/Events/NextEventWidget.php:56
-msgid "Show Date"
-msgstr ""
-
-#: src/Events/NextEventWidget.php:65
-msgid "Show Location"
-msgstr ""
-
-#: src/Events/NextEventWidget.php:74
-msgid "Date Format"
-msgstr ""
-
-#: src/Events/NextEventWidget.php:77
-msgid "PHP date format string (e.g. \"l j F Y · H:i\")"
-msgstr ""
-
-#: src/Events/NextEventWidget.php:82
 msgid "No Upcoming Event Text"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:84
+#: src/Events/NextEventWidget.php:40
 msgid "No upcoming event."
 msgstr ""
 
-#: src/Events/NextEventWidget.php:91
-msgid "Card"
+#: src/Events/NextEventWidget.php:78
+msgid "Show End Time"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:168
-#: src/Events/NextEventWidget.php:200
-#: src/Events/NextEventWidget.php:242
-msgid "Bottom Spacing"
+#: src/Events/NextEventWidget.php:80
+#: src/Events/NextEventWidget.php:111
+msgid "Yes"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:210
-#: src/Events/NextEventWidget.php:252
-msgid "Icon Gap"
+#: src/Events/NextEventWidget.php:81
+#: src/Events/NextEventWidget.php:112
+msgid "No"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:265
+#: src/Events/NextEventWidget.php:87
+msgid "Date Format"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:90
+msgid "PHP date format for the day (e.g. \"l j F Y\")"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:94
+msgid "Time Format"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:97
+msgid "PHP time format (e.g. \"H:i\" or \"g:i a\")"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:103
 msgid "Description"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:284
-msgid "Top Spacing"
+#: src/Events/NextEventWidget.php:109
+msgid "Show Description"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:297
-msgid "No Event Text"
+#: src/Events/NextEventWidget.php:121
+msgid "Card"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:189
+msgid "Date & Time"
 msgstr ""
 
 #: src/RedirectDesktop/RedirectDesktopFeature.php:29
