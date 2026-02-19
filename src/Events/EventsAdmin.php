@@ -24,8 +24,16 @@ class EventsAdmin {
             return;
         }
 
+        // all-deletion
+        if (($_POST["action"] ?? "") == "delete_all" && wp_verify_nonce($_POST["delete_all_nonce"] ?? "", "delete_all_events_action")) {
+            delete_option("events_list");
+            echo "<div class='updated'><p>" . __("All events deleted", "exode") . "</p></div>";
+        }
+
         /** @var Event[] $events */
         $events = get_option("events_list", []);
+
+
 
         // deletion
         if (($_GET["action"] ?? "") == "delete" && isset($_GET["id"])) {
@@ -37,22 +45,19 @@ class EventsAdmin {
 
         // creation
         if (wp_verify_nonce($_POST["events_nonce"] ?? "", "add_event_action")) {
-            $raw_start_date = $_POST["e_start_date"];
-            $unix_start_date = $raw_start_date ? strtotime($raw_start_date) : time();
-            $raw_end_date = $_POST["e_end_date"];
-            $unix_end_date = $raw_end_date ? strtotime($raw_end_date) : time();
             $new_event = new Event(
                 sanitize_text_field($_POST["e_title"]),
                 sanitize_text_field($_POST["e_content"]),
-                $unix_start_date,
-                $unix_end_date,
+                $_POST["e_day"],
+                $_POST["e_start_time"],
+                $_POST["e_end_time"],
                 sanitize_text_field($_POST["e_location"]),
 
             );
             $events[] = $new_event;
 
             // sort by increasing order
-            usort($events, fn($a, $b) => $a->startDate <=> $b->startDate);
+            usort($events, fn($a, $b) => $a->start->getTimestamp() <=> $b->start->getTimestamp());
             update_option("events_list", $events);
             echo "<div class='updated'><p>" . __("Event added and sorted !", "exode") . "</p></div>";
         }

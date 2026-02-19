@@ -4,10 +4,14 @@ namespace Exode\Events;
 
 /** @param Event[] $events */
 function render_events_form(array $events) {
-    $d = date("Y-m-d\TH:i");
+    $event_days = [
+        "2026-03-06",
+        "2026-03-07",
+        "2026-03-08",
+    ];
 ?>
     <div class="wrap">
-        <h1><?php _e("Manage Events", "exode"); ?></h1>
+        <h1><?php _e("Manage Events", "exode"); ?> (<?php echo count($events); ?>)</h1>
 
         <form method="post">
             <?php wp_nonce_field("add_event_action", "events_nonce"); ?>
@@ -26,17 +30,25 @@ function render_events_form(array $events) {
                         <label for="e_content"><?php _e("Content", "exode"); ?></label>
                     </th>
                     <td>
-                        <textarea name="e_content" placeholder="<?php _e("Event content", "exode"); ?>" rows="3" class="large-text" required></textarea>
+                        <textarea name="e_content" placeholder="<?php _e("Event content", "exode"); ?>" rows="3" class="large-text"></textarea>
                     </td>
                 </tr>
 
                 <tr>
                     <th scope="row">
-                        <label><?php _e("Start - End", "exode"); ?></label>
+                        <label><?php _e("Time", "exode"); ?></label>
                     </th>
                     <td>
-                        <input type="datetime-local" name="e_start_date" value="<?php echo $d; ?>" required>
-                        <input type="datetime-local" name="e_end_date" value="<?php echo $d; ?>" required>
+                        <select name="e_day" required>
+                            <option value="">Select Day</option>
+                            <?php foreach ($event_days as $day): ?>
+                                <option value="<?php echo esc_attr($day); ?>" <?php selected($day); ?>>
+                                    <?php echo date("d/m/Y", strtotime($day)); ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                        <input type="time" name="e_start_time" required>
+                        <input type="time" name="e_end_time" required>
                     </td>
                 </tr>
                 <tr>
@@ -54,11 +66,17 @@ function render_events_form(array $events) {
 
             <?php submit_button(__("Create", "exode")); ?>
         </form>
+        <form method="post"
+            onsubmit="<?php echo "return confirm('" . __("Delete all events", "exode") . "?');"; ?>">
+            <?php wp_nonce_field("delete_all_events_action", "delete_all_nonce"); ?>
+            <input type="hidden" name="action" value="delete_all">
+            <?php submit_button(__("Delete all events", "exode"), 'delete', 'delete_all_button', false); ?>
+        </form>
 
         <table class="wp-list widefat fixed striped">
             <thead>
                 <tr>
-                    <th><?php _e("Start - End", "exode"); ?></th>
+                    <th><?php _e("Time", "exode"); ?></th>
                     <th><?php _e("Title", "exode"); ?></th>
                     <th><?php _e("Content", "exode"); ?></th>
                     <th><?php _e("Location", "exode"); ?></th>
@@ -72,10 +90,11 @@ function render_events_form(array $events) {
                     </tr>
                 <?php else: ?>
                     <?php foreach ($events as $e):
-                        $startDate = esc_html(wp_date("j M H:i", $e->startDate));
-                        $endDate = esc_html(wp_date("j M H:i", $e->endDate)); ?>
+                        $day = esc_html(wp_date("D", $e->start->getTimestamp()));
+                        $startTime = esc_html(wp_date("H:i", $e->start->getTimestamp()));
+                        $endTime = esc_html(wp_date("H:i", $e->end->getTimestamp())); ?>
                         <tr>
-                            <td><?php echo $startDate . " - " . $endDate; ?></td>
+                            <td><?php echo $day . " " . $startTime . " - " . $endTime; ?></td>
                             <td><strong><?php echo esc_html($e->title); ?></strong></td>
                             <td><?php echo nl2br(esc_html($e->content)); ?></td>
                             <td><?php echo esc_html($e->location); ?></td>
@@ -83,7 +102,7 @@ function render_events_form(array $events) {
                                 <a
                                     href="<?php echo wp_nonce_url(admin_url('admin.php?page=exode-events&action=delete&id=' . $e->id), 'delete_event_' . $e->id); ?>"
                                     style="color:red"
-                                    onclick="<?php echo "return confirm ('" . __("Delete", "exode") . " " . $e->title . "?')"; ?>">
+                                    onclick="<?php echo "return confirm('" . __("Delete", "exode") . " " . $e->title . "?')"; ?>">
                                     <?php _e("Delete", "exode"); ?>
                                 </a>
                             </td>

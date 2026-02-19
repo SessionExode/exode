@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Exode\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/exode\n"
-"POT-Creation-Date: 2026-02-18T09:25:14+00:00\n"
+"POT-Creation-Date: 2026-02-19T19:34:39+00:00\n"
 "PO-Revision-Date: 2026-02-12 18:27+0100\n"
 "Last-Translator:  <vian.hervy@gmail.com>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -45,8 +45,8 @@ msgid "New Announcement"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:14
-#: src/Announcements/announcements-form.php:27 src/Events/events-form.php:18
-#: src/Events/events-form.php:62
+#: src/Announcements/announcements-form.php:27 src/Events/events-form.php:22
+#: src/Events/events-form.php:80 src/Events/NextEventWidget.php:149
 msgid "Title"
 msgstr ""
 
@@ -59,21 +59,22 @@ msgid "Date (Optional)"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:20
-#: src/Contacts/contacts-form.php:17 src/Events/events-form.php:55
+#: src/Contacts/contacts-form.php:17 src/Events/events-form.php:67
 msgid "Create"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:26
+#: src/Events/NextEventWidget.php:181
 msgid "Date"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:28 src/Buvette/BuvetteWidget.php:29
-#: src/Contacts/ContactsWidget.php:29 src/Events/events-form.php:26
-#: src/Events/events-form.php:63
+#: src/Contacts/ContactsWidget.php:29 src/Events/events-form.php:30
+#: src/Events/events-form.php:81 src/Events/NextEventWidget.php:33
 msgid "Content"
 msgstr ""
 
-#: src/Announcements/announcements-form.php:29 src/Events/events-form.php:65
+#: src/Announcements/announcements-form.php:29 src/Events/events-form.php:83
 msgid "Actions"
 msgstr ""
 
@@ -84,7 +85,7 @@ msgstr ""
 #: src/Announcements/announcements-form.php:47
 #: src/Announcements/announcements-form.php:48
 #: src/Contacts/contacts-form.php:46 src/Contacts/contacts-form.php:47
-#: src/Events/events-form.php:86 src/Events/events-form.php:87
+#: src/Events/events-form.php:105 src/Events/events-form.php:106
 msgid "Delete"
 msgstr ""
 
@@ -172,6 +173,10 @@ msgstr ""
 msgid "Closed State"
 msgstr ""
 
+#: src/Contacts/contacts-form.php:9
+msgid "Contacts"
+msgstr ""
+
 #: src/Contacts/contacts-form.php:13 src/Contacts/contacts-form.php:23
 msgid "First name"
 msgstr ""
@@ -213,14 +218,17 @@ msgid "Container"
 msgstr ""
 
 #: src/Contacts/ContactsWidget.php:48 src/Contacts/ContactsWidget.php:86
+#: src/Events/NextEventWidget.php:113
 msgid "Margin"
 msgstr ""
 
 #: src/Contacts/ContactsWidget.php:54 src/Contacts/ContactsWidget.php:93
+#: src/Events/NextEventWidget.php:96
 msgid "Padding"
 msgstr ""
 
 #: src/Contacts/ContactsWidget.php:71 src/Contacts/ContactsWidget.php:110
+#: src/Events/NextEventWidget.php:132
 msgid "Border Radius"
 msgstr ""
 
@@ -234,6 +242,9 @@ msgstr ""
 
 #: src/Contacts/ContactsWidget.php:122 src/Contacts/ContactsWidget.php:138
 #: src/Contacts/ContactsWidget.php:154 src/Contacts/ContactsWidget.php:170
+#: src/Events/NextEventWidget.php:155 src/Events/NextEventWidget.php:187
+#: src/Events/NextEventWidget.php:229 src/Events/NextEventWidget.php:271
+#: src/Events/NextEventWidget.php:302
 msgid "Color"
 msgstr ""
 
@@ -270,38 +281,118 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: src/Events/events-form.php:10
+#: src/Events/events-form.php:14
 msgid "Manage Events"
 msgstr ""
 
-#: src/Events/events-form.php:14
+#: src/Events/events-form.php:18
 msgid "New Event"
 msgstr ""
 
-#: src/Events/events-form.php:29
+#: src/Events/events-form.php:33
 msgid "Event content"
 msgstr ""
 
-#: src/Events/events-form.php:35 src/Events/events-form.php:61
-msgid "Start - End"
+#: src/Events/events-form.php:39 src/Events/events-form.php:79
+msgid "Time"
 msgstr ""
 
-#: src/Events/events-form.php:44 src/Events/events-form.php:64
+#: src/Events/events-form.php:56 src/Events/events-form.php:82
+#: src/Events/NextEventWidget.php:223
 msgid "Location"
 msgstr ""
 
-#: src/Events/events-form.php:71
+#: src/Events/events-form.php:70 src/Events/events-form.php:73
+msgid "Delete all events"
+msgstr ""
+
+#: src/Events/events-form.php:89
 msgid "No event found."
 msgstr ""
 
-#: src/Events/EventsAdmin.php:35
+#: src/Events/EventsAdmin.php:30
+msgid "All events deleted"
+msgstr ""
+
+#: src/Events/EventsAdmin.php:43
 msgid "Event deleted"
 msgstr ""
 
-#: src/Events/EventsAdmin.php:57
+#: src/Events/EventsAdmin.php:62
 msgid "Event added and sorted !"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:12
+#: src/Events/NextEventWidget.php:20
 msgid "Next Event"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:38
+msgid "Show Title"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:40 src/Events/NextEventWidget.php:49
+#: src/Events/NextEventWidget.php:58 src/Events/NextEventWidget.php:67
+msgid "Yes"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:41 src/Events/NextEventWidget.php:50
+#: src/Events/NextEventWidget.php:59 src/Events/NextEventWidget.php:68
+msgid "No"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:47
+msgid "Show Description"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:56
+msgid "Show Date"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:65
+msgid "Show Location"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:74
+msgid "Date Format"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:77
+msgid "PHP date format string (e.g. \"l j F Y · H:i\")"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:82
+msgid "No Upcoming Event Text"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:84
+msgid "No upcoming event."
+msgstr ""
+
+#: src/Events/NextEventWidget.php:91
+msgid "Card"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:168 src/Events/NextEventWidget.php:200
+#: src/Events/NextEventWidget.php:242
+msgid "Bottom Spacing"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:210 src/Events/NextEventWidget.php:252
+msgid "Icon Gap"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:265
+msgid "Description"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:284
+msgid "Top Spacing"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:297
+msgid "No Event Text"
+msgstr ""
+
+#: src/RedirectDesktop/RedirectDesktopFeature.php:29
+msgid "Editing Page in Desktop view"
 msgstr ""
