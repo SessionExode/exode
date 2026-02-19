@@ -23,6 +23,17 @@ class CoreAdmin {
     }
 
     public function settings_page(): void {
-        echo '<div class="wrap"><h1>' . __("Welcome on the Exode plugin", "exode") . '</h1></div>';
+        /** @var string $google_maps_api_key */
+        $google_maps_api_key = get_option("google_maps_api_key");
+
+        // Update Google Maps API key
+        if (isset($_POST["google_maps_api_key"])) {
+            $google_maps_api_key = $_POST["google_maps_api_key"];
+            update_option("google_maps_api_key", $google_maps_api_key);
+            echo '<div class="updated"><p>' . __("New API key: $google_maps_api_key") . '</p></div>';
+        }
+
+        require_once __DIR__ . "/core-form.php";
+        render_core_form($google_maps_api_key);
     }
 }

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Exode\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/exode\n"
-"POT-Creation-Date: 2026-02-18T00:55:42+00:00\n"
+"POT-Creation-Date: 2026-02-18T09:25:14+00:00\n"
 "PO-Revision-Date: 2026-02-12 18:27+0100\n"
 "Last-Translator:  <vian.hervy@gmail.com>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -46,7 +46,7 @@ msgstr ""
 
 #: src/Announcements/announcements-form.php:14
 #: src/Announcements/announcements-form.php:27 src/Events/events-form.php:18
-#: src/Events/events-form.php:59
+#: src/Events/events-form.php:62
 msgid "Title"
 msgstr ""
 
@@ -59,7 +59,7 @@ msgid "Date (Optional)"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:20
-#: src/Contacts/contacts-form.php:17 src/Events/events-form.php:52
+#: src/Contacts/contacts-form.php:17 src/Events/events-form.php:55
 msgid "Create"
 msgstr ""
 
@@ -69,11 +69,11 @@ msgstr ""
 
 #: src/Announcements/announcements-form.php:28 src/Buvette/BuvetteWidget.php:29
 #: src/Contacts/ContactsWidget.php:29 src/Events/events-form.php:26
-#: src/Events/events-form.php:60
+#: src/Events/events-form.php:63
 msgid "Content"
 msgstr ""
 
-#: src/Announcements/announcements-form.php:29 src/Events/events-form.php:62
+#: src/Announcements/announcements-form.php:29 src/Events/events-form.php:65
 msgid "Actions"
 msgstr ""
 
@@ -84,7 +84,7 @@ msgstr ""
 #: src/Announcements/announcements-form.php:47
 #: src/Announcements/announcements-form.php:48
 #: src/Contacts/contacts-form.php:46 src/Contacts/contacts-form.php:47
-#: src/Events/events-form.php:83 src/Events/events-form.php:84
+#: src/Events/events-form.php:86 src/Events/events-form.php:87
 msgid "Delete"
 msgstr ""
 
@@ -108,7 +108,7 @@ msgstr ""
 msgid "Closed"
 msgstr ""
 
-#: src/Buvette/buvette-form.php:19
+#: src/Buvette/buvette-form.php:19 src/Core/core-form.php:17
 msgid "Save"
 msgstr ""
 
@@ -262,8 +262,12 @@ msgstr ""
 msgid "No contacts found"
 msgstr ""
 
-#: src/Core/CoreAdmin.php:26
-msgid "Welcome on the Exode plugin"
+#: src/Core/core-form.php:8
+msgid "Welcome to the Exode plugin"
+msgstr ""
+
+#: src/Core/core-form.php:9
+msgid "Settings"
 msgstr ""
 
 #: src/Events/events-form.php:10
@@ -278,15 +282,15 @@ msgstr ""
 msgid "Event content"
 msgstr ""
 
-#: src/Events/events-form.php:35 src/Events/events-form.php:58
+#: src/Events/events-form.php:35 src/Events/events-form.php:61
 msgid "Start - End"
 msgstr ""
 
-#: src/Events/events-form.php:44 src/Events/events-form.php:61
+#: src/Events/events-form.php:44 src/Events/events-form.php:64
 msgid "Location"
 msgstr ""
 
-#: src/Events/events-form.php:68
+#: src/Events/events-form.php:71
 msgid "No event found."
 msgstr ""
 
