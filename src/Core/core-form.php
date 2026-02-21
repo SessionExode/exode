@@ -11,8 +11,8 @@ function render_core_form(string $google_maps_api_key) {
             <label>
                 <p>Google Maps API Key</p>
                 <input type="text" name="google_maps_api_key"
-                    class="regular-text" required
-                    value="<?php echo esc_attr($google_maps_api_key); ?>">
+                    class="regular-text"
+                    value="<?= esc_attr($google_maps_api_key); ?>">
             </label>
             <?php submit_button(__("Save", "exode"));; ?>
         </form>

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Exode\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/exode\n"
-"POT-Creation-Date: 2026-02-19T20:40:30+00:00\n"
+"POT-Creation-Date: 2026-02-21T11:57:58+00:00\n"
 "PO-Revision-Date: 2026-02-12 18:27+0100\n"
 "Last-Translator:  <vian.hervy@gmail.com>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -45,8 +45,8 @@ msgid "New Announcement"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:14
-#: src/Announcements/announcements-form.php:27 src/Events/events-form.php:22
-#: src/Events/events-form.php:80 src/Events/NextEventWidget.php:46
+#: src/Announcements/announcements-form.php:27 src/Events/events-form.php:31
+#: src/Events/events-form.php:96 src/Events/NextEventWidget.php:46
 #: src/Events/NextEventWidget.php:170
 msgid "Title"
 msgstr ""
@@ -60,7 +60,7 @@ msgid "Date (Optional)"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:20
-#: src/Contacts/contacts-form.php:17 src/Events/events-form.php:67
+#: src/Contacts/contacts-form.php:17 src/Events/events-form.php:83
 msgid "Create"
 msgstr ""
 
@@ -70,12 +70,12 @@ msgid "Date"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:28 src/Buvette/BuvetteWidget.php:29
-#: src/Contacts/ContactsWidget.php:29 src/Events/events-form.php:30
-#: src/Events/events-form.php:81
+#: src/Contacts/ContactsWidget.php:29 src/Events/events-form.php:40
+#: src/Events/events-form.php:97
 msgid "Content"
 msgstr ""
 
-#: src/Announcements/announcements-form.php:29 src/Events/events-form.php:83
+#: src/Announcements/announcements-form.php:29 src/Events/events-form.php:99
 msgid "Actions"
 msgstr ""
 
@@ -86,7 +86,7 @@ msgstr ""
 #: src/Announcements/announcements-form.php:47
 #: src/Announcements/announcements-form.php:48
 #: src/Contacts/contacts-form.php:46 src/Contacts/contacts-form.php:47
-#: src/Events/events-form.php:105 src/Events/events-form.php:106
+#: src/Events/events-form.php:125 src/Events/events-form.php:126
 msgid "Delete"
 msgstr ""
 
@@ -279,44 +279,60 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: src/Events/events-form.php:14
+#: src/Events/events-form.php:16
 msgid "Manage Events"
 msgstr ""
 
-#: src/Events/events-form.php:18
+#: src/Events/events-form.php:22
+msgid "Edit Event"
+msgstr ""
+
+#: src/Events/events-form.php:25
 msgid "New Event"
 msgstr ""
 
-#: src/Events/events-form.php:33
+#: src/Events/events-form.php:43
 msgid "Event content"
 msgstr ""
 
-#: src/Events/events-form.php:39 src/Events/events-form.php:79
+#: src/Events/events-form.php:51 src/Events/events-form.php:95
 msgid "Time"
 msgstr ""
 
-#: src/Events/events-form.php:56 src/Events/events-form.php:82
+#: src/Events/events-form.php:71 src/Events/events-form.php:98
 msgid "Location"
 msgstr ""
 
-#: src/Events/events-form.php:70 src/Events/events-form.php:73
+#: src/Events/events-form.php:83
+msgid "Update"
+msgstr ""
+
+#: src/Events/events-form.php:86 src/Events/events-form.php:89
 msgid "Delete all events"
 msgstr ""
 
-#: src/Events/events-form.php:89
+#: src/Events/events-form.php:105
 msgid "No event found."
 msgstr ""
 
-#: src/Events/EventsAdmin.php:30
-msgid "All events deleted"
+#: src/Events/events-form.php:120
+msgid "Edit"
 msgstr ""
 
-#: src/Events/EventsAdmin.php:43
+#: src/Events/EventsAdmin.php:36
 msgid "Event deleted"
 msgstr ""
 
-#: src/Events/EventsAdmin.php:62
+#: src/Events/EventsAdmin.php:73
+msgid "Event updated and sorted !"
+msgstr ""
+
+#: src/Events/EventsAdmin.php:73
 msgid "Event added and sorted !"
+msgstr ""
+
+#: src/Events/EventsAdmin.php:80
+msgid "All events deleted"
 msgstr ""
 
 #: src/Events/NextEventWidget.php:20
