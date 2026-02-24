@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Exode\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/exode\n"
-"POT-Creation-Date: 2026-02-24T12:18:37+00:00\n"
+"POT-Creation-Date: 2026-02-24T14:32:56+00:00\n"
 "PO-Revision-Date: 2026-02-12 18:27+0100\n"
 "Last-Translator:  <vian.hervy@gmail.com>\n"
 "Language-Team: French <traduc@traduc.org>\n"
@@ -123,6 +123,7 @@ msgid "Buvette Status"
 msgstr ""
 
 #: src/Buvette/BuvetteWidget.php:29 src/Events/NextEventWidget.php:33
+#: src/VerseOfTheDay/VerseOfTheDayWidget.php:31
 msgid "Global"
 msgstr ""
 
@@ -227,6 +228,7 @@ msgid "ex: - or |"
 msgstr ""
 
 #: src/Contacts/ContactsWidget.php:44
+#: src/VerseOfTheDay/VerseOfTheDayWidget.php:66
 msgid "Container"
 msgstr ""
 
@@ -236,11 +238,13 @@ msgstr ""
 
 #: src/Contacts/ContactsWidget.php:54 src/Contacts/ContactsWidget.php:93
 #: src/Events/NextEventWidget.php:123
+#: src/VerseOfTheDay/VerseOfTheDayWidget.php:77
 msgid "Padding"
 msgstr ""
 
 #: src/Contacts/ContactsWidget.php:71 src/Contacts/ContactsWidget.php:110
 #: src/Events/NextEventWidget.php:150
+#: src/VerseOfTheDay/VerseOfTheDayWidget.php:94
 msgid "Border Radius"
 msgstr ""
 
@@ -409,4 +413,25 @@ msgstr ""
 
 #: src/RedirectDesktop/RedirectDesktopFeature.php:33
 msgid "Editing Page in Desktop view"
+msgstr ""
+
+#: src/VerseOfTheDay/VerseOfTheDayWidget.php:20
+#: src/VerseOfTheDay/VerseOfTheDayWidget.php:38
+msgid "Verse of the Day"
+msgstr ""
+
+#: src/VerseOfTheDay/VerseOfTheDayWidget.php:36
+msgid "Verse of the Day Title"
+msgstr ""
+
+#: src/VerseOfTheDay/VerseOfTheDayWidget.php:113
+msgid "Unable to load the verse."
+msgstr ""
+
+#: src/VerseOfTheDay/VerseOfTheDayWidget.php:120
+msgid "No mass data found for today"
+msgstr ""
+
+#: src/VerseOfTheDay/VerseOfTheDayWidget.php:169
+msgid "No verse available for today."
 msgstr ""

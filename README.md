@@ -19,6 +19,7 @@ This script removes non-dev dependencies, archives `exode.php`, `src/`, `assets/
     - [ ] Global config through admin panel
 - [ ] Events
     - [ ] NextEventWidget: show the next event info
+    - [ ] NextEventWidget: date/time in one control.
     - [ ] AllEventsWidget: list of all events (maybe a line to show where we stand/events happening rn)
     - [ ] Manage location through a Google Maps link (add preview to admin form)
 - [ ] Verse of the Day custom element

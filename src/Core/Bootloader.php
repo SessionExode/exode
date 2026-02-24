@@ -6,6 +6,7 @@ use Exode\Announcements\AnnouncementsFeature;
 use Exode\Buvette\BuvetteFeature;
 use Exode\Contacts\ContactsFeature;
 use Exode\Events\EventsFeature;
+use Exode\VerseOfTheDay\VerseOfTheDayFeature;
 use Exode\RedirectDesktop\RedirectDesktopFeature;
 
 class Bootloader {
@@ -21,6 +22,7 @@ class Bootloader {
     private function load_features(): void {
         new CoreFeature();
         new EventsFeature();
+        new VerseOfTheDayFeature();
         new AnnouncementsFeature();
         new ContactsFeature();
         new BuvetteFeature();
