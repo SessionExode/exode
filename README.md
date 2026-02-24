@@ -15,7 +15,7 @@ This script removes non-dev dependencies, archives `exode.php`, `src/`, `assets/
 - [ ] Events
     - [ ] NextEventWidget: show the next event info
     - [ ] EventsWidget: list of all events (maybe a line to show where we stand/events happening rn)
-    - [ ] Manage location through a google map link (add preview to admin form)
+    - [ ] Manage location through a Google Maps link (add preview to admin form)
 - [ ] Verse of the Day custom element
 - [ ] Long term
 - [ ] Remove duplicate "Exode" menu (main menu + submenu) in admin view

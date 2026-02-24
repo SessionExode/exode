@@ -20,10 +20,10 @@ class Bootloader {
 
     private function load_features(): void {
         new CoreFeature();
-        new AnnouncementsFeature();
-        new BuvetteFeature();
-        new ContactsFeature();
         new EventsFeature();
+        new AnnouncementsFeature();
+        new ContactsFeature();
+        new BuvetteFeature();
         new RedirectDesktopFeature();
     }
 }
