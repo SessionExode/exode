@@ -25,8 +25,26 @@ class BuvetteWidget extends Widget_Base {
     protected function register_controls(): void {
 
         // --- SECTION: CONTENT ---
-        $this->start_controls_section('content_section', [
-            'label' => __('Content', 'exode'),
+        $this->start_controls_section('global_section', [
+            'label' => __('Global', 'exode'),
+            'tab' => Controls_Manager::TAB_CONTENT,
+        ]);
+        $this->add_control("layout_type", [
+            "label" => __("Layout", "exode"),
+            "type" => Controls_Manager::CHOOSE,
+            'options' => [
+                'row' => ['title' => __('Horizontal', 'exode'), 'icon' => 'eicon-arrow-right'],
+                'column' => ['title' => __('Vertical', 'exode'), 'icon' => 'eicon-arrow-down',]
+            ],
+            "default" => "row",
+            "selectors" => [
+                "{{WRAPPER}} .buvette-status-container" => "display: flex; flex-direction: {{VALUE}}; align-items: center;"
+            ]
+        ]);
+        $this->end_controls_section();
+
+        $this->start_controls_section('text_section', [
+            'label' => __('Text', 'exode'),
             'tab' => Controls_Manager::TAB_CONTENT,
         ]);
         $this->add_control('text_open', [
@@ -39,6 +57,12 @@ class BuvetteWidget extends Widget_Base {
             'type' => Controls_Manager::TEXT,
             'default' => __('Buvette closed', 'exode'),
         ]);
+        $this->end_controls_section();
+
+        $this->start_controls_section('icon_section', [
+            'label' => __('Icon', 'exode'),
+            'tab' => Controls_Manager::TAB_CONTENT,
+        ]);
         $this->add_control('selected_icon', [
             'label' => __('Icon', 'exode'),
             'type' => Controls_Manager::ICONS,
@@ -47,19 +71,16 @@ class BuvetteWidget extends Widget_Base {
                 'library' => 'fa-solid',
             ],
         ]);
-
-        $this->add_control("layout_type", [
-            "label" => __("Layout", "exode"),
-            "type" => Controls_Manager::CHOOSE,
-            'options' => [
-                'row' => ['title' => __('Horizontal', 'exode'), 'icon' => 'eicon-arrow-right'],
-                'column' => ['title' => __('Vertical', 'exode'), 'icon' => 'eicon-arrow-down',]
-            ],
-            "default" => "row",
-            "selectors" => [
-                "{{WRAPPER}} .buvette-status-container" => "display: flex; flex-direction: {{VALUE}};"
+        $this->add_control(
+            "icon_size",
+            [
+                'label' => __('Icon Size', 'exode'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', '%', 'em', 'rem', 'vw', 'custom'],
+                'range' => ['px' => ['min' => 6, 'max' => 300]],
+                'selectors' => ['{{WRAPPER}} .buvette-status-container svg' => 'height: {{SIZE}}{{UNIT}}; width: auto;'],
             ]
-        ]);
+        );
 
         $this->end_controls_section();
 
@@ -129,7 +150,6 @@ class BuvetteWidget extends Widget_Base {
         $state_class = $is_open ? 'status-is-open' : 'status-is-closed';
         $display_text = $is_open ? $settings['text_open'] : $settings['text_closed'];
 
-        echo '<div class="buvette-widget-wrapper">';
         echo '<div class="buvette-status-container ' . esc_attr($state_class) . '">';
 
         if (!empty($settings['selected_icon']['value'])) {
@@ -138,7 +158,6 @@ class BuvetteWidget extends Widget_Base {
         }
 
         echo '<span class="status-text">' . esc_html($display_text) . '</span>';
-        echo '</div>';
         echo '</div>';
     }
 }

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-21T11:57:58+00:00\n"
+"POT-Creation-Date: 2026-02-24T12:44:09+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: exode\n"
@@ -45,9 +45,9 @@ msgstr ""
 #: src/Announcements/announcements-form.php:14
 #: src/Announcements/announcements-form.php:27
 #: src/Events/events-form.php:31
-#: src/Events/events-form.php:96
-#: src/Events/NextEventWidget.php:46
-#: src/Events/NextEventWidget.php:170
+#: src/Events/events-form.php:92
+#: src/Events/NextEventWidget.php:52
+#: src/Events/NextEventWidget.php:167
 msgid "Title"
 msgstr ""
 
@@ -61,25 +61,24 @@ msgstr ""
 
 #: src/Announcements/announcements-form.php:20
 #: src/Contacts/contacts-form.php:17
-#: src/Events/events-form.php:83
+#: src/Events/events-form.php:79
 msgid "Create"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:26
-#: src/Events/NextEventWidget.php:73
+#: src/Events/NextEventWidget.php:79
 msgid "Date"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:28
-#: src/Buvette/BuvetteWidget.php:29
 #: src/Contacts/ContactsWidget.php:29
 #: src/Events/events-form.php:40
-#: src/Events/events-form.php:97
+#: src/Events/events-form.php:93
 msgid "Content"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:29
-#: src/Events/events-form.php:99
+#: src/Events/events-form.php:95
 msgid "Actions"
 msgstr ""
 
@@ -91,8 +90,8 @@ msgstr ""
 #: src/Announcements/announcements-form.php:48
 #: src/Contacts/contacts-form.php:46
 #: src/Contacts/contacts-form.php:47
+#: src/Events/events-form.php:124
 #: src/Events/events-form.php:125
-#: src/Events/events-form.php:126
 msgid "Delete"
 msgstr ""
 
@@ -117,7 +116,6 @@ msgid "Closed"
 msgstr ""
 
 #: src/Buvette/buvette-form.php:19
-#: src/Core/core-form.php:17
 msgid "Save"
 msgstr ""
 
@@ -129,56 +127,70 @@ msgstr ""
 msgid "Buvette Status"
 msgstr ""
 
+#: src/Buvette/BuvetteWidget.php:29
+#: src/Events/NextEventWidget.php:33
+msgid "Global"
+msgstr ""
+
 #: src/Buvette/BuvetteWidget.php:33
-msgid "Open Text"
-msgstr ""
-
-#: src/Buvette/BuvetteWidget.php:35
-msgid "Buvette open"
-msgstr ""
-
-#: src/Buvette/BuvetteWidget.php:38
-msgid "Closed Text"
-msgstr ""
-
-#: src/Buvette/BuvetteWidget.php:40
-msgid "Buvette closed"
-msgstr ""
-
-#: src/Buvette/BuvetteWidget.php:43
-msgid "Icon"
-msgstr ""
-
-#: src/Buvette/BuvetteWidget.php:52
 msgid "Layout"
 msgstr ""
 
-#: src/Buvette/BuvetteWidget.php:55
+#: src/Buvette/BuvetteWidget.php:36
 msgid "Horizontal"
 msgstr ""
 
-#: src/Buvette/BuvetteWidget.php:56
+#: src/Buvette/BuvetteWidget.php:37
 msgid "Vertical"
 msgstr ""
 
-#: src/Buvette/BuvetteWidget.php:68
+#: src/Buvette/BuvetteWidget.php:47
+msgid "Text"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:51
+msgid "Open Text"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:53
+msgid "Buvette open"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:56
+msgid "Closed Text"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:58
+msgid "Buvette closed"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:63
+#: src/Buvette/BuvetteWidget.php:67
+msgid "Icon"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:77
+msgid "Icon Size"
+msgstr ""
+
+#: src/Buvette/BuvetteWidget.php:89
 msgid "Global Style"
 msgstr ""
 
-#: src/Buvette/BuvetteWidget.php:76
+#: src/Buvette/BuvetteWidget.php:97
 msgid "Icon Spacing"
 msgstr ""
 
-#: src/Buvette/BuvetteWidget.php:88
+#: src/Buvette/BuvetteWidget.php:109
 msgid "Open State"
 msgstr ""
 
-#: src/Buvette/BuvetteWidget.php:92
-#: src/Buvette/BuvetteWidget.php:109
+#: src/Buvette/BuvetteWidget.php:113
+#: src/Buvette/BuvetteWidget.php:130
 msgid "Color (Text & Icon)"
 msgstr ""
 
-#: src/Buvette/BuvetteWidget.php:105
+#: src/Buvette/BuvetteWidget.php:126
 msgid "Closed State"
 msgstr ""
 
@@ -235,13 +247,13 @@ msgstr ""
 
 #: src/Contacts/ContactsWidget.php:54
 #: src/Contacts/ContactsWidget.php:93
-#: src/Events/NextEventWidget.php:126
+#: src/Events/NextEventWidget.php:123
 msgid "Padding"
 msgstr ""
 
 #: src/Contacts/ContactsWidget.php:71
 #: src/Contacts/ContactsWidget.php:110
-#: src/Events/NextEventWidget.php:153
+#: src/Events/NextEventWidget.php:150
 msgid "Border Radius"
 msgstr ""
 
@@ -257,8 +269,8 @@ msgstr ""
 #: src/Contacts/ContactsWidget.php:138
 #: src/Contacts/ContactsWidget.php:154
 #: src/Contacts/ContactsWidget.php:170
-#: src/Events/NextEventWidget.php:175
-#: src/Events/NextEventWidget.php:194
+#: src/Events/NextEventWidget.php:172
+#: src/Events/NextEventWidget.php:191
 msgid "Color"
 msgstr ""
 
@@ -292,8 +304,8 @@ msgstr ""
 msgid "Welcome to the Exode plugin"
 msgstr ""
 
-#: src/Core/core-form.php:9
-msgid "Settings"
+#: src/Events/AllEventsWidget.php:20
+msgid "All Events"
 msgstr ""
 
 #: src/Events/events-form.php:16
@@ -312,46 +324,46 @@ msgstr ""
 msgid "Event content"
 msgstr ""
 
-#: src/Events/events-form.php:51
-#: src/Events/events-form.php:95
+#: src/Events/events-form.php:50
+#: src/Events/events-form.php:91
 msgid "Time"
 msgstr ""
 
-#: src/Events/events-form.php:71
-#: src/Events/events-form.php:98
+#: src/Events/events-form.php:70
+#: src/Events/events-form.php:94
 msgid "Location"
 msgstr ""
 
-#: src/Events/events-form.php:83
+#: src/Events/events-form.php:79
 msgid "Update"
 msgstr ""
 
-#: src/Events/events-form.php:86
-#: src/Events/events-form.php:89
+#: src/Events/events-form.php:82
+#: src/Events/events-form.php:85
 msgid "Delete all events"
 msgstr ""
 
-#: src/Events/events-form.php:105
+#: src/Events/events-form.php:101
 msgid "No event found."
 msgstr ""
 
-#: src/Events/events-form.php:120
+#: src/Events/events-form.php:119
 msgid "Edit"
 msgstr ""
 
-#: src/Events/EventsAdmin.php:36
-msgid "Event deleted"
-msgstr ""
-
-#: src/Events/EventsAdmin.php:73
+#: src/Events/EventsAdmin.php:30
 msgid "Event updated and sorted !"
 msgstr ""
 
-#: src/Events/EventsAdmin.php:73
+#: src/Events/EventsAdmin.php:31
 msgid "Event added and sorted !"
 msgstr ""
 
-#: src/Events/EventsAdmin.php:80
+#: src/Events/EventsAdmin.php:43
+msgid "Event deleted"
+msgstr ""
+
+#: src/Events/EventsAdmin.php:82
 msgid "All events deleted"
 msgstr ""
 
@@ -359,64 +371,62 @@ msgstr ""
 msgid "Next Event"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:33
-msgid "Global"
-msgstr ""
-
 #: src/Events/NextEventWidget.php:38
-msgid "No Upcoming Event Text"
+msgid "Next Event Text"
 msgstr ""
 
 #: src/Events/NextEventWidget.php:40
+msgid "Next event"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:44
+msgid "No Upcoming Event Text"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:46
 msgid "No upcoming event."
 msgstr ""
 
-#: src/Events/NextEventWidget.php:78
-msgid "Show End Time"
-msgstr ""
-
-#: src/Events/NextEventWidget.php:80
-#: src/Events/NextEventWidget.php:111
-msgid "Yes"
-msgstr ""
-
-#: src/Events/NextEventWidget.php:81
-#: src/Events/NextEventWidget.php:112
-msgid "No"
-msgstr ""
-
-#: src/Events/NextEventWidget.php:87
+#: src/Events/NextEventWidget.php:84
 msgid "Date Format"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:90
+#: src/Events/NextEventWidget.php:87
 msgid "PHP date format for the day (e.g. \"l j F Y\")"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:94
+#: src/Events/NextEventWidget.php:91
 msgid "Time Format"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:97
+#: src/Events/NextEventWidget.php:94
 msgid "PHP time format (e.g. \"H:i\" or \"g:i a\")"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:103
+#: src/Events/NextEventWidget.php:100
 msgid "Description"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:109
+#: src/Events/NextEventWidget.php:106
 msgid "Show Description"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:121
+#: src/Events/NextEventWidget.php:108
+msgid "Yes"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:109
+msgid "No"
+msgstr ""
+
+#: src/Events/NextEventWidget.php:118
 msgid "Card"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:189
+#: src/Events/NextEventWidget.php:186
 msgid "Date & Time"
 msgstr ""
 
-#: src/RedirectDesktop/RedirectDesktopFeature.php:29
+#: src/RedirectDesktop/RedirectDesktopFeature.php:33
 msgid "Editing Page in Desktop view"
 msgstr ""

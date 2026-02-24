@@ -11,14 +11,18 @@ class RedirectDesktopFeature {
     }
 
     public function inject_desktop_redirect() {
+        if (is_page("desktop-notice")) { // don't redirect if already on notice
+            return;
+        }
+
         $url = home_url("/desktop-notice/");
+
         // alert if editing + desktop
         // redirect if non-editing + desktop
         $alert = isset($_GET["elementor-preview"])
             || Plugin::$instance->editor->is_edit_mode() // don't redirect if editing
             || is_admin() // don't redirect when admin
-            || is_customize_preview()
-            || is_page("desktop-notice"); // don't redirect if already on notice
+            || is_customize_preview();
 
 ?>
         <script type="text/javascript">
