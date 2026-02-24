@@ -34,6 +34,12 @@ class NextEventWidget extends Widget_Base {
             'tab'   => Controls_Manager::TAB_CONTENT,
         ]);
 
+        $this->add_control('next_event_text', [
+            'label'   => __('Next Event Text', 'exode'),
+            'type'    => Controls_Manager::TEXT,
+            'default' => __('Next event', 'exode'),
+        ]);
+
         $this->add_control('no_event_text', [
             'label'   => __('No Upcoming Event Text', 'exode'),
             'type'    => Controls_Manager::TEXT,
@@ -72,15 +78,6 @@ class NextEventWidget extends Widget_Base {
         $this->start_controls_section('date_section', [
             'label' => __('Date', 'exode'),
             'tab'   => Controls_Manager::TAB_CONTENT,
-        ]);
-
-        $this->add_control('show_end_time', [
-            'label'        => __('Show End Time', 'exode'),
-            'type'         => Controls_Manager::SWITCHER,
-            'label_on'     => __('Yes', 'exode'),
-            'label_off'    => __('No', 'exode'),
-            'return_value' => 'yes',
-            'default'      => 'yes',
         ]);
 
         $this->add_control('date_format', [
@@ -213,7 +210,7 @@ class NextEventWidget extends Widget_Base {
 
         $next_event = null;
         foreach ($events as $event) {
-            if ($event->start->getTimestamp() >= $now) {
+            if ($event->getStart()->getTimestamp() >= $now) {
                 $next_event = $event;
                 break;
             }
@@ -228,17 +225,18 @@ class NextEventWidget extends Widget_Base {
         $date_format = $settings['date_format'] ?: 'l j F Y';
         $time_format = $settings['time_format'] ?: 'H:i';
 
-        $day_label   = wp_date($date_format, $next_event->start->getTimestamp());
-        $start_time  = wp_date($time_format, $next_event->start->getTimestamp());
-        $end_time    = wp_date($time_format, $next_event->end->getTimestamp());
+        $day_label   = wp_date($date_format, $next_event->getStart()->getTimestamp());
+        $start_time  = wp_date($time_format, $next_event->getStart()->getTimestamp());
+        $end_time    = $next_event->getEnd() ? wp_date($time_format, $next_event->getEnd()->getTimestamp()) : "";
 
         echo '<div class="exode-next-event-card">';
+        echo '<p>' . esc_html($settings["next_event_text"]) . '</p>';
 
-        echo '<' . $title_size . ' class="exode-next-event-title">' . esc_html($next_event->title) . '</' . $title_size . '>';
+        echo '<' . $title_size . ' class="exode-next-event-title">' . esc_html($next_event->getTitle()) . '</' . $title_size . '>';
 
         echo '<p class="exode-next-event-date">';
         echo '<span class="exode-meta-icon dashicons dashicons-calendar-alt" aria-hidden="true"></span>';
-        if ($settings["show_end_time"] == "yes") {
+        if ($end_time) {
             echo esc_html($day_label) . ' | ' . esc_html($start_time) . ' – ' . esc_html($end_time);
         } else {
             echo esc_html($day_label) . ' | ' . esc_html($start_time);
@@ -246,16 +244,16 @@ class NextEventWidget extends Widget_Base {
         echo '</p>';
 
         // Location is now mandatory (checks if empty just in case)
-        if (!empty($next_event->location)) {
+        if (!empty($next_event->getLocation())) {
             echo '<p class="exode-next-event-location">';
             echo '<span class="exode-meta-icon dashicons dashicons-location" aria-hidden="true"></span>';
-            echo esc_html($next_event->location);
+            echo esc_html($next_event->getLocation());
             echo '</p>';
         }
 
         // Description remains optional via switcher
-        if ($settings['show_content'] === 'yes' && !empty($next_event->content)) {
-            echo '<div class="exode-next-event-content">' . nl2br(esc_html($next_event->content)) . '</div>';
+        if ($settings['show_content'] === 'yes') {
+            echo '<div class="exode-next-event-content">' . nl2br(esc_html($next_event->getContent())) . '</div>';
         }
 
         echo '</div>';

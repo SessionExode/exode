@@ -25,13 +25,20 @@ class EventsAdmin {
             return;
         }
 
+        if (isset($_GET["msg"])) {
+            $msg = $_GET["msg"] === "updated"
+                ? __("Event updated and sorted !", "exode")
+                : __("Event added and sorted !", "exode");
+            echo "<div class='updated'><p>$msg</p></div>";
+        }
+
         /** @var Event[] $events */
         $events = get_option("events_list", []);
 
         // deletion
         if (($_GET["action"] ?? "") == "delete" && isset($_GET["id"])) {
             check_admin_referer("delete_event_" . $_GET["id"]);
-            $events = array_filter($events, fn($e) => $e->id !== $_GET["id"]);
+            $events = array_filter($events, fn($e) => $e->getId() !== $_GET["id"]);
             update_option("events_list", $events);
             echo "<div class='updated'><p>" . __("Event deleted", "exode") . "</p></div>";
         }
@@ -40,38 +47,33 @@ class EventsAdmin {
         if (wp_verify_nonce($_POST["events_nonce"] ?? "", "add_event_action")) {
             $is_update = !empty($_POST["e_id"]);
 
+            $new_event = new Event(
+                sanitize_text_field($_POST["e_title"]),
+                sanitize_text_field($_POST["e_content"]),
+                sanitize_text_field($_POST["e_location"]),
+                $_POST["e_day"],
+                $_POST["e_start_time"],
+                $_POST["e_end_time"] ?: null,
+                $is_update ? $_POST["e_id"] : ""
+            );
             if ($is_update) {
                 foreach ($events as &$e) {
-                    if ($e->id === $_POST["e_id"]) {
-                        $e->title = sanitize_text_field($_POST["e_title"]);
-                        $e->content = sanitize_text_field($_POST["e_content"]);
-                        $e->location = sanitize_text_field($_POST["e_location"]);
-
-                        $tz = wp_timezone();
-                        $e->start = new \DateTimeImmutable($_POST["e_day"] . ' ' . $_POST["e_start_time"], $tz);
-                        $e->end = new \DateTimeImmutable($_POST["e_day"] . ' ' . $_POST["e_end_time"], $tz);
+                    if ($e->getId() === $new_event->getId()) {
+                        $e = $new_event;
                         break;
                     }
                 }
             } else {
-
-                $new_event = new Event(
-                    sanitize_text_field($_POST["e_title"]),
-                    sanitize_text_field($_POST["e_content"]),
-                    $_POST["e_day"],
-                    $_POST["e_start_time"],
-                    $_POST["e_end_time"],
-                    sanitize_text_field($_POST["e_location"]),
-
-                );
                 $events[] = $new_event;
             }
 
             // sort by increasing order
-            usort($events, fn($a, $b) => $a->start->getTimestamp() <=> $b->start->getTimestamp());
+            usort($events, fn($a, $b) => $a->getStart()->getTimestamp() <=> $b->getStart()->getTimestamp());
             update_option("events_list", $events);
-            $msg = $is_update ? __("Event updated and sorted !", "exode") : __("Event added and sorted !", "exode");
-            echo "<div class='updated'><p>" .  $msg . "</p></div>";
+
+            $redirect_url = admin_url("admin.php?page=exode-events&msg=" . ($is_update ? "updated" : "created"));
+            wp_safe_redirect($redirect_url);
+            exit;
         }
 
         // all-deletion
@@ -85,7 +87,7 @@ class EventsAdmin {
         $edit_event = null;
         if (($_GET["action"] ?? "") == "edit" && isset($_GET["id"])) {
             foreach ($events as $e) {
-                if ($e->id === $_GET["id"]) {
+                if ($e->getId() === $_GET["id"]) {
                     $edit_event = $e;
                     break;
                 }
