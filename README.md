@@ -22,7 +22,7 @@ This script removes non-dev dependencies, archives `exode.php`, `src/`, `assets/
     - [ ] NextEventWidget: date/time in one control.
     - [ ] AllEventsWidget: list of all events (maybe a line to show where we stand/events happening rn)
     - [ ] Manage location through a Google Maps link (add preview to admin form)
-- [ ] Verse of the Day custom element
+- [x] Verse of the Day custom element
 - [ ] Long term
     - [ ] Remove duplicate "Exode" menu (main menu + submenu) in admin view
     - [ ] Write all French translations in [`lang/exode-fr\_FR.po`](lang/exode-fr_FR.po)
