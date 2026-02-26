@@ -25,23 +25,10 @@ class EventsAdmin {
             return;
         }
 
-        if (isset($_GET["msg"])) {
-            $msg = $_GET["msg"] === "updated"
-                ? __("Event updated and sorted !", "exode")
-                : __("Event added and sorted !", "exode");
-            echo "<div class='updated'><p>$msg</p></div>";
-        }
-
         /** @var Event[] $events */
         $events = get_option("events_list", []);
+        $success_msg = "";
 
-        // deletion
-        if (($_GET["action"] ?? "") == "delete" && isset($_GET["id"])) {
-            check_admin_referer("delete_event_" . $_GET["id"]);
-            $events = array_filter($events, fn($e) => $e->getId() !== $_GET["id"]);
-            update_option("events_list", $events);
-            echo "<div class='updated'><p>" . __("Event deleted", "exode") . "</p></div>";
-        }
 
         // creation / edition
         if (wp_verify_nonce($_POST["events_nonce"] ?? "", "add_event_action")) {
@@ -54,9 +41,11 @@ class EventsAdmin {
                 $_POST["e_day"],
                 $_POST["e_start_time"],
                 $_POST["e_end_time"] ?: null,
+                $_POST["e_page_id"] ?: null,
                 $is_update ? $_POST["e_id"] : ""
             );
             if ($is_update) {
+                $success_msg = __("Event updated and sorted !", "exode");
                 foreach ($events as &$e) {
                     if ($e->getId() === $new_event->getId()) {
                         $e = $new_event;
@@ -64,6 +53,7 @@ class EventsAdmin {
                     }
                 }
             } else {
+                $success_msg = __("Event added and sorted !", "exode");
                 $events[] = $new_event;
             }
 
@@ -71,16 +61,29 @@ class EventsAdmin {
             usort($events, fn($a, $b) => $a->getStart()->getTimestamp() <=> $b->getStart()->getTimestamp());
             update_option("events_list", $events);
 
-            $redirect_url = admin_url("admin.php?page=exode-events&msg=" . ($is_update ? "updated" : "created"));
-            wp_safe_redirect($redirect_url);
-            exit;
+            // clear url variables to avoid $edit_event setting $edit_event after
+            $_GET["action"] = "";
+            $_GET["id"] = "";
+        }
+
+        // deletion
+        if (($_GET["action"] ?? "") == "delete" && isset($_GET["id"])) {
+            check_admin_referer("delete_event_" . $_GET["id"]);
+            $events = array_filter($events, fn($e) => $e->getId() !== $_GET["id"]);
+            update_option("events_list", $events);
+            $success_msg = __("Event deleted", "exode");
+            $events = get_option("events_list");
         }
 
         // all-deletion
         if (($_POST["action"] ?? "") == "delete_all" && wp_verify_nonce($_POST["delete_all_nonce"] ?? "", "delete_all_events_action")) {
             delete_option("events_list");
-            echo "<div class='updated'><p>" . __("All events deleted", "exode") . "</p></div>";
+            $success_msg = __("All events deleted", "exode");
             $events = get_option("events_list");
+        }
+
+        if ($success_msg) {
+            echo "<div class='updated'><p>$success_msg</p></div>";
         }
 
         /** @var Event $edit_event */

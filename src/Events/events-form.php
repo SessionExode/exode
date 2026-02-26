@@ -44,7 +44,6 @@ function render_events_form(array $events, ?Event $edit_event) {
                             class="large-text"><?= esc_textarea($edit_event?->getContent()) ?></textarea>
                     </td>
                 </tr>
-
                 <tr>
                     <th scope="row">
                         <label><?= __("Time", "exode") ?></label>
@@ -74,6 +73,19 @@ function render_events_form(array $events, ?Event $edit_event) {
                             value="<?= esc_attr($edit_event?->getLocation()) ?>">
                     </td>
                 </tr>
+                <tr>
+                    <th scope="row">
+                        <label for="e_page_id"><?= __("Linked Page", "exode") ?></label>
+                    </th>
+                    <td>
+                        <?php wp_dropdown_pages([
+                            "name" => "e_page_id",
+                            "show_option_none" => __("No linked page", "exode"),
+                            "option_none_value" => "0",
+                            "selected" => $edit_event ? $edit_event->getPageId() : 0
+                        ]); ?>
+                    </td>
+                </tr>
             </table>
 
             <?php submit_button($edit_event ? __("Update", "exode") : __("Create", "exode")); ?>
@@ -92,13 +104,14 @@ function render_events_form(array $events, ?Event $edit_event) {
                     <th><?= __("Title", "exode") ?></th>
                     <th><?= __("Content", "exode") ?></th>
                     <th><?= __("Location", "exode") ?></th>
+                    <th><?= __("Linked Page", "exode") ?></th>
                     <th><?= __("Actions", "exode") ?></th>
                 </tr>
             </thead>
             <tbody>
                 <?php if (empty($events)): ?>
                     <tr>
-                        <td colspan="5"><?= __("No event found.", "exode") ?></td>
+                        <td colspan="6"><?= __("No event found.", "exode") ?></td>
                     </tr>
                 <?php else: ?>
                     <?php foreach ($events as $e):
@@ -113,6 +126,15 @@ function render_events_form(array $events, ?Event $edit_event) {
                             <td><strong><?= esc_html($e->getTitle()) ?></strong></td>
                             <td><?= nl2br(esc_html($e->getContent())) ?></td>
                             <td><?= esc_html($e->getLocation()) ?></td>
+                            <td>
+                                <?php if ($e->getPageId()): ?>
+                                    <a href="<?= get_permalink($e->getPageId()) ?>">
+                                        <?= esc_html(get_the_title($e->getPageId())) ?>
+                                    </a>
+                                <?php else: ?>
+                                    <p><?= esc_html(__("No linked page", "exode")) ?></p>
+                                <?php endif; ?>
+                            </td>
                             <td>
                                 <a
                                     href="<?= wp_nonce_url(admin_url('admin.php?page=exode-events&action=edit&id=' . $e->getId())) ?>">

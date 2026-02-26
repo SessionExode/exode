@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-24T14:36:48+00:00\n"
+"POT-Creation-Date: 2026-02-26T19:43:07+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: exode\n"
@@ -45,7 +45,7 @@ msgstr ""
 #: src/Announcements/announcements-form.php:14
 #: src/Announcements/announcements-form.php:27
 #: src/Events/events-form.php:31
-#: src/Events/events-form.php:92
+#: src/Events/events-form.php:104
 #: src/Events/NextEventWidget.php:52
 #: src/Events/NextEventWidget.php:167
 msgid "Title"
@@ -61,7 +61,7 @@ msgstr ""
 
 #: src/Announcements/announcements-form.php:20
 #: src/Contacts/contacts-form.php:17
-#: src/Events/events-form.php:79
+#: src/Events/events-form.php:91
 msgid "Create"
 msgstr ""
 
@@ -73,12 +73,12 @@ msgstr ""
 #: src/Announcements/announcements-form.php:28
 #: src/Contacts/ContactsWidget.php:29
 #: src/Events/events-form.php:40
-#: src/Events/events-form.php:93
+#: src/Events/events-form.php:105
 msgid "Content"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:29
-#: src/Events/events-form.php:95
+#: src/Events/events-form.php:108
 msgid "Actions"
 msgstr ""
 
@@ -90,8 +90,8 @@ msgstr ""
 #: src/Announcements/announcements-form.php:48
 #: src/Contacts/contacts-form.php:46
 #: src/Contacts/contacts-form.php:47
-#: src/Events/events-form.php:124
-#: src/Events/events-form.php:125
+#: src/Events/events-form.php:146
+#: src/Events/events-form.php:147
 msgid "Delete"
 msgstr ""
 
@@ -128,6 +128,7 @@ msgid "Buvette Status"
 msgstr ""
 
 #: src/Buvette/BuvetteWidget.php:29
+#: src/Events/AllEventsWidget.php:31
 #: src/Events/NextEventWidget.php:33
 #: src/VerseOfTheDay/VerseOfTheDayWidget.php:31
 msgid "Global"
@@ -312,6 +313,24 @@ msgstr ""
 msgid "All Events"
 msgstr ""
 
+#: src/Events/AllEventsWidget.php:36
+msgid "No Events Text"
+msgstr ""
+
+#: src/Events/AllEventsWidget.php:38
+msgid "No events scheduled for today."
+msgstr ""
+
+#: src/Events/AllEventsWidget.php:42
+#: src/Events/NextEventWidget.php:91
+msgid "Time Format"
+msgstr ""
+
+#: src/Events/AllEventsWidget.php:45
+#: src/Events/NextEventWidget.php:94
+msgid "PHP time format (e.g. \"H:i\" or \"g:i a\")"
+msgstr ""
+
 #: src/Events/events-form.php:16
 msgid "Manage Events"
 msgstr ""
@@ -328,46 +347,56 @@ msgstr ""
 msgid "Event content"
 msgstr ""
 
-#: src/Events/events-form.php:50
-#: src/Events/events-form.php:91
+#: src/Events/events-form.php:49
+#: src/Events/events-form.php:103
 msgid "Time"
 msgstr ""
 
-#: src/Events/events-form.php:70
-#: src/Events/events-form.php:94
+#: src/Events/events-form.php:69
+#: src/Events/events-form.php:106
 msgid "Location"
 msgstr ""
 
-#: src/Events/events-form.php:79
+#: src/Events/events-form.php:78
+#: src/Events/events-form.php:107
+msgid "Linked Page"
+msgstr ""
+
+#: src/Events/events-form.php:83
+#: src/Events/events-form.php:135
+msgid "No linked page"
+msgstr ""
+
+#: src/Events/events-form.php:91
 msgid "Update"
 msgstr ""
 
-#: src/Events/events-form.php:82
-#: src/Events/events-form.php:85
+#: src/Events/events-form.php:94
+#: src/Events/events-form.php:97
 msgid "Delete all events"
 msgstr ""
 
-#: src/Events/events-form.php:101
+#: src/Events/events-form.php:114
 msgid "No event found."
 msgstr ""
 
-#: src/Events/events-form.php:119
+#: src/Events/events-form.php:141
 msgid "Edit"
 msgstr ""
 
-#: src/Events/EventsAdmin.php:30
+#: src/Events/EventsAdmin.php:48
 msgid "Event updated and sorted !"
 msgstr ""
 
-#: src/Events/EventsAdmin.php:31
+#: src/Events/EventsAdmin.php:56
 msgid "Event added and sorted !"
 msgstr ""
 
-#: src/Events/EventsAdmin.php:43
+#: src/Events/EventsAdmin.php:74
 msgid "Event deleted"
 msgstr ""
 
-#: src/Events/EventsAdmin.php:82
+#: src/Events/EventsAdmin.php:81
 msgid "All events deleted"
 msgstr ""
 
@@ -397,14 +426,6 @@ msgstr ""
 
 #: src/Events/NextEventWidget.php:87
 msgid "PHP date format for the day (e.g. \"l j F Y\")"
-msgstr ""
-
-#: src/Events/NextEventWidget.php:91
-msgid "Time Format"
-msgstr ""
-
-#: src/Events/NextEventWidget.php:94
-msgid "PHP time format (e.g. \"H:i\" or \"g:i a\")"
 msgstr ""
 
 #: src/Events/NextEventWidget.php:100

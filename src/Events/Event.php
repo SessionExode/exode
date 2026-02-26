@@ -18,7 +18,8 @@ class Event {
         string $day,
         string $start_time,
         ?string $end_time,
-        private string $id = ""
+        private ?string $pageId,
+        private ?string $id
     ) {
         $tz = wp_timezone();
         $this->start = new DateTimeImmutable("$day $start_time", $tz);
@@ -45,6 +46,9 @@ class Event {
 
     function getEnd() {
         return $this->end;
+    }
+    function getPageId() {
+        return $this->pageId;
     }
     function getId() {
         return $this->id;
