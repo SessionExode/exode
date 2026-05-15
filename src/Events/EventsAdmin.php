@@ -34,15 +34,17 @@ class EventsAdmin {
         if (wp_verify_nonce($_POST["events_nonce"] ?? "", "add_event_action")) {
             $is_update = !empty($_POST["e_id"]);
 
+            $post = stripslashes_deep($_POST);
+
             $new_event = new Event(
-                sanitize_text_field($_POST["e_title"]),
-                sanitize_text_field($_POST["e_content"]),
-                sanitize_text_field($_POST["e_location"]),
-                $_POST["e_day"],
-                $_POST["e_start_time"],
-                $_POST["e_end_time"] ?: null,
-                $_POST["e_page_id"] ?: null,
-                $is_update ? $_POST["e_id"] : ""
+                sanitize_text_field($post["e_title"]),
+                sanitize_text_field($post["e_content"]),
+                sanitize_text_field($post["e_location"]),
+                $post["e_day"],
+                $post["e_start_time"],
+                $post["e_end_time"] ?: null,
+                $post["e_page_url"] ?: null,
+                $is_update ? $post["e_id"] : ""
             );
             if ($is_update) {
                 $success_msg = __("Event updated and sorted !", "exode");
@@ -72,14 +74,14 @@ class EventsAdmin {
             $events = array_filter($events, fn($e) => $e->getId() !== $_GET["id"]);
             update_option("events_list", $events);
             $success_msg = __("Event deleted", "exode");
-            $events = get_option("events_list");
+            $events = get_option("events_list", []);
         }
 
         // all-deletion
         if (($_POST["action"] ?? "") == "delete_all" && wp_verify_nonce($_POST["delete_all_nonce"] ?? "", "delete_all_events_action")) {
             delete_option("events_list");
             $success_msg = __("All events deleted", "exode");
-            $events = get_option("events_list");
+            $events = get_option("events_list", []);
         }
 
         if ($success_msg) {

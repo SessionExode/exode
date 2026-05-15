@@ -14,5 +14,10 @@ class EventsFeature {
             fn(Widgets_Manager $widgets_manager) =>
             $widgets_manager->register(new NextEventWidget())
         );
+        add_action(
+            "elementor/widgets/register",
+            fn(Widgets_Manager $widgets_manager) =>
+            $widgets_manager->register(new AllEventsWidget())
+        );
     }
 }

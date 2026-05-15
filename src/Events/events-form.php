@@ -69,21 +69,16 @@ function render_events_form(array $events, ?Event $edit_event) {
                         <label for="e_location"><?= __("Location", "exode") ?></label>
                     </th>
                     <td>
-                        <input type="text" id="e_location" name="e_location" class="regular-text" required
+                        <input type="text" id="e_location" name="e_location" class="regular-text"
                             value="<?= esc_attr($edit_event?->getLocation()) ?>">
                     </td>
                 </tr>
                 <tr>
                     <th scope="row">
-                        <label for="e_page_id"><?= __("Linked Page", "exode") ?></label>
+                        <label for="e_page_url"><?= __("Linked Page", "exode") ?></label>
                     </th>
                     <td>
-                        <?php wp_dropdown_pages([
-                            "name" => "e_page_id",
-                            "show_option_none" => __("No linked page", "exode"),
-                            "option_none_value" => "0",
-                            "selected" => $edit_event ? $edit_event->getPageId() : 0
-                        ]); ?>
+                        <input type="url" name="e_page_url" value="<?= $edit_event ? $edit_event->getPageURL() : "" ?>" />
                     </td>
                 </tr>
             </table>
@@ -125,14 +120,16 @@ function render_events_form(array $events, ?Event $edit_event) {
                             </td>
                             <td><strong><?= esc_html($e->getTitle()) ?></strong></td>
                             <td><?= nl2br(esc_html($e->getContent())) ?></td>
-                            <td><?= esc_html($e->getLocation()) ?></td>
                             <td>
-                                <?php if ($e->getPageId()): ?>
-                                    <a href="<?= get_permalink($e->getPageId()) ?>">
-                                        <?= esc_html(get_the_title($e->getPageId())) ?>
+                                <?= $e->getLocation() ?: esc_html__("No location set", "exode") ?>
+                            </td>
+                            <td>
+                                <?php if ($e->getPageURL()): ?>
+                                    <a href="<?= esc_url($e->getPageURL()) ?>">
+                                        <?= esc_html($e->getPageURL()) ?>
                                     </a>
                                 <?php else: ?>
-                                    <p><?= esc_html(__("No linked page", "exode")) ?></p>
+                                    <p><?= esc_html__("No linked page", "exode") ?></p>
                                 <?php endif; ?>
                             </td>
                             <td>

@@ -14,11 +14,11 @@ class Event {
     function __construct(
         private string $title,
         private string $content,
-        private string $location,
+        private ?string $location,
         string $day,
         string $start_time,
         ?string $end_time,
-        private ?string $pageId,
+        private ?string $pageURL,
         private ?string $id
     ) {
         $tz = wp_timezone();
@@ -47,8 +47,8 @@ class Event {
     function getEnd() {
         return $this->end;
     }
-    function getPageId() {
-        return $this->pageId;
+    function getPageURL() {
+        return $this->pageURL;
     }
     function getId() {
         return $this->id;

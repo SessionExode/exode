@@ -26,3 +26,12 @@ This script removes non-dev dependencies, archives `exode.php`, `src/`, `assets/
 - [ ] Long term
     - [ ] Remove duplicate "Exode" menu (main menu + submenu) in admin view
     - [ ] Write all French translations in [`lang/exode-fr\_FR.po`](lang/exode-fr_FR.po)
+
+1. événement en cours + suivant (joli)
+2. infos contenu de l'événement (petit dialogue ou page si plus d'info)
+3. section infos pratique (statique)
+    - covoit, parking, arrivée
+    - PLAN
+    - manger/dormir
+    - départ des bus
+    - contacts (statique)

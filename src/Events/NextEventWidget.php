@@ -40,6 +40,26 @@ class NextEventWidget extends Widget_Base {
             'default' => __('Next event', 'exode'),
         ]);
 
+        $this->add_control(
+            'text_tag',
+            [
+                'label' => esc_html__('HTML Tag', 'elementor'),
+                'type' => Controls_Manager::SELECT,
+                'options' => [
+                    'h1' => 'H1',
+                    'h2' => 'H2',
+                    'h3' => 'H3',
+                    'h4' => 'H4',
+                    'h5' => 'H5',
+                    'h6' => 'H6',
+                    'div' => 'div',
+                    'span' => 'span',
+                    'p' => 'p',
+                ],
+                'default' => 'h5',
+            ]
+        );
+
         $this->add_control('no_event_text', [
             'label'   => __('No Upcoming Event Text', 'exode'),
             'type'    => Controls_Manager::TEXT,
@@ -54,7 +74,7 @@ class NextEventWidget extends Widget_Base {
         ]);
 
         $this->add_control(
-            'title_size',
+            'title_tag',
             [
                 'label' => esc_html__('HTML Tag', 'elementor'),
                 'type' => Controls_Manager::SELECT,
@@ -216,46 +236,60 @@ class NextEventWidget extends Widget_Base {
             }
         }
 
-        if ($next_event === null) {
-            echo '<p class="exode-next-event-none">' . esc_html($settings['no_event_text']) . '</p>';
-            return;
-        }
+        if ($next_event === null) : ?>
+            <p class="exode-next-event-none"><?= esc_html($settings['no_event_text']) ?></p>
+        <?php return;
+        endif;
 
-        $title_size = $settings["title_size"] ?: "h5";
+        $text_tag = $settings["text_tag"] ?: "h5";
+        $title_tag = $settings["title_tag"] ?: "h5";
         $date_format = $settings['date_format'] ?: 'l j F Y';
         $time_format = $settings['time_format'] ?: 'H:i';
 
         $day_label   = wp_date($date_format, $next_event->getStart()->getTimestamp());
         $start_time  = wp_date($time_format, $next_event->getStart()->getTimestamp());
         $end_time    = $next_event->getEnd() ? wp_date($time_format, $next_event->getEnd()->getTimestamp()) : "";
+        ?>
 
-        echo '<div class="exode-next-event-card">';
-        echo '<p>' . esc_html($settings["next_event_text"]) . '</p>';
+        <div class="exode-next-event-card">
+            <<?= $text_tag ?> class="exode-next-event-text">
+                <?= esc_html($settings["next_event_text"]) ?>
+            </<?= $text_tag ?>>
 
-        echo '<' . $title_size . ' class="exode-next-event-title">' . esc_html($next_event->getTitle()) . '</' . $title_size . '>';
+            <<?= $title_tag ?> class="exode-next-event-title">
+                <?php if ($next_event->getPageURL()) : ?>
+                    <a href="<?= esc_url($next_event->getPageURL()) ?>"
+                        style="display: inline-flex; align-items: center; text-decoration: none; color: inherit;">
+                        <?= esc_html($next_event->getTitle()) ?>
+                        <i class="dashicons dashicons-external" aria-hidden="true"></i>
+                    </a>
+                <?php else : ?>
+                    <?= esc_html($next_event->getTitle()) ?>
+                <?php endif; ?>
+            </<?= $title_tag ?>>
 
-        echo '<p class="exode-next-event-date">';
-        echo '<span class="exode-meta-icon dashicons dashicons-calendar-alt" aria-hidden="true"></span>';
-        if ($end_time) {
-            echo esc_html($day_label) . ' | ' . esc_html($start_time) . ' – ' . esc_html($end_time);
-        } else {
-            echo esc_html($day_label) . ' | ' . esc_html($start_time);
-        }
-        echo '</p>';
-
-        // Location is now mandatory (checks if empty just in case)
-        if (!empty($next_event->getLocation())) {
-            echo '<p class="exode-next-event-location">';
-            echo '<span class="exode-meta-icon dashicons dashicons-location" aria-hidden="true"></span>';
-            echo esc_html($next_event->getLocation());
-            echo '</p>';
-        }
-
-        // Description remains optional via switcher
-        if ($settings['show_content'] === 'yes') {
-            echo '<div class="exode-next-event-content">' . nl2br(esc_html($next_event->getContent())) . '</div>';
-        }
-
-        echo '</div>';
+            <ul style="list-style: none; padding-left: 0; align-items: center;">
+                <li class="exode-next-event-date">
+                    <i class="exode-meta-icon dashicons dashicons-calendar-alt"
+                        style="display:inline-block;"></i>
+                    <?= esc_html($day_label) ?> | <?= esc_html($start_time) ?>
+                    <?php if ($end_time): ?>
+                        – <?= esc_html($end_time) ?>
+                    <?php endif; ?>
+                </li>
+                <?php if (!empty($next_event->getLocation())) : ?>
+                    <li class="exode-next-event-location">
+                        <i class="exode-meta-icon dashicons dashicons-location" aria-hidden="true"></i>
+                        <?= esc_html($next_event->getLocation()) ?>
+                    </li>
+                <?php endif; ?>
+            </ul>
+            <?php if ($settings['show_content'] === 'yes') : ?>
+                <div class="exode-next-event-content">
+                    <?= nl2br(esc_html($next_event->getContent())) ?>
+                </div>
+            <?php endif; ?>
+        </div>
+<?php
     }
 }

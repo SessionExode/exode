@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-02-26T19:43:07+00:00\n"
+"POT-Creation-Date: 2026-03-03T10:24:24+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: exode\n"
@@ -45,9 +45,9 @@ msgstr ""
 #: src/Announcements/announcements-form.php:14
 #: src/Announcements/announcements-form.php:27
 #: src/Events/events-form.php:31
-#: src/Events/events-form.php:104
-#: src/Events/NextEventWidget.php:52
-#: src/Events/NextEventWidget.php:167
+#: src/Events/events-form.php:99
+#: src/Events/NextEventWidget.php:72
+#: src/Events/NextEventWidget.php:187
 msgid "Title"
 msgstr ""
 
@@ -61,24 +61,24 @@ msgstr ""
 
 #: src/Announcements/announcements-form.php:20
 #: src/Contacts/contacts-form.php:17
-#: src/Events/events-form.php:91
+#: src/Events/events-form.php:86
 msgid "Create"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:26
-#: src/Events/NextEventWidget.php:79
+#: src/Events/NextEventWidget.php:99
 msgid "Date"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:28
 #: src/Contacts/ContactsWidget.php:29
 #: src/Events/events-form.php:40
-#: src/Events/events-form.php:105
+#: src/Events/events-form.php:100
 msgid "Content"
 msgstr ""
 
 #: src/Announcements/announcements-form.php:29
-#: src/Events/events-form.php:108
+#: src/Events/events-form.php:103
 msgid "Actions"
 msgstr ""
 
@@ -90,8 +90,8 @@ msgstr ""
 #: src/Announcements/announcements-form.php:48
 #: src/Contacts/contacts-form.php:46
 #: src/Contacts/contacts-form.php:47
-#: src/Events/events-form.php:146
-#: src/Events/events-form.php:147
+#: src/Events/events-form.php:143
+#: src/Events/events-form.php:144
 msgid "Delete"
 msgstr ""
 
@@ -250,14 +250,14 @@ msgstr ""
 
 #: src/Contacts/ContactsWidget.php:54
 #: src/Contacts/ContactsWidget.php:93
-#: src/Events/NextEventWidget.php:123
+#: src/Events/NextEventWidget.php:143
 #: src/VerseOfTheDay/VerseOfTheDayWidget.php:77
 msgid "Padding"
 msgstr ""
 
 #: src/Contacts/ContactsWidget.php:71
 #: src/Contacts/ContactsWidget.php:110
-#: src/Events/NextEventWidget.php:150
+#: src/Events/NextEventWidget.php:170
 #: src/VerseOfTheDay/VerseOfTheDayWidget.php:94
 msgid "Border Radius"
 msgstr ""
@@ -274,8 +274,8 @@ msgstr ""
 #: src/Contacts/ContactsWidget.php:138
 #: src/Contacts/ContactsWidget.php:154
 #: src/Contacts/ContactsWidget.php:170
-#: src/Events/NextEventWidget.php:172
-#: src/Events/NextEventWidget.php:191
+#: src/Events/NextEventWidget.php:192
+#: src/Events/NextEventWidget.php:211
 msgid "Color"
 msgstr ""
 
@@ -322,12 +322,12 @@ msgid "No events scheduled for today."
 msgstr ""
 
 #: src/Events/AllEventsWidget.php:42
-#: src/Events/NextEventWidget.php:91
+#: src/Events/NextEventWidget.php:111
 msgid "Time Format"
 msgstr ""
 
 #: src/Events/AllEventsWidget.php:45
-#: src/Events/NextEventWidget.php:94
+#: src/Events/NextEventWidget.php:114
 msgid "PHP time format (e.g. \"H:i\" or \"g:i a\")"
 msgstr ""
 
@@ -348,55 +348,58 @@ msgid "Event content"
 msgstr ""
 
 #: src/Events/events-form.php:49
-#: src/Events/events-form.php:103
+#: src/Events/events-form.php:98
 msgid "Time"
 msgstr ""
 
 #: src/Events/events-form.php:69
-#: src/Events/events-form.php:106
+#: src/Events/events-form.php:101
 msgid "Location"
 msgstr ""
 
 #: src/Events/events-form.php:78
-#: src/Events/events-form.php:107
+#: src/Events/events-form.php:102
 msgid "Linked Page"
 msgstr ""
 
-#: src/Events/events-form.php:83
-#: src/Events/events-form.php:135
-msgid "No linked page"
-msgstr ""
-
-#: src/Events/events-form.php:91
+#: src/Events/events-form.php:86
 msgid "Update"
 msgstr ""
 
-#: src/Events/events-form.php:94
-#: src/Events/events-form.php:97
+#: src/Events/events-form.php:89
+#: src/Events/events-form.php:92
 msgid "Delete all events"
 msgstr ""
 
-#: src/Events/events-form.php:114
+#: src/Events/events-form.php:109
 msgid "No event found."
 msgstr ""
 
-#: src/Events/events-form.php:141
+#: src/Events/events-form.php:124
+msgid "No location set"
+msgstr ""
+
+#: src/Events/events-form.php:132
+msgid "No linked page"
+msgstr ""
+
+#: src/Events/events-form.php:138
 msgid "Edit"
 msgstr ""
 
-#: src/Events/EventsAdmin.php:48
+#: src/Events/EventsAdmin.php:50
 msgid "Event updated and sorted !"
 msgstr ""
 
-#: src/Events/EventsAdmin.php:56
+#: src/Events/EventsAdmin.php:58
 msgid "Event added and sorted !"
 msgstr ""
 
-#: src/Events/EventsAdmin.php:74
+#: src/Events/EventsAdmin.php:76
 msgid "Event deleted"
 msgstr ""
 
-#: src/Events/EventsAdmin.php:81
+#: src/Events/EventsAdmin.php:83
 msgid "All events deleted"
 msgstr ""
 
@@ -412,43 +415,43 @@ msgstr ""
 msgid "Next event"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:44
+#: src/Events/NextEventWidget.php:64
 msgid "No Upcoming Event Text"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:46
+#: src/Events/NextEventWidget.php:66
 msgid "No upcoming event."
 msgstr ""
 
-#: src/Events/NextEventWidget.php:84
+#: src/Events/NextEventWidget.php:104
 msgid "Date Format"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:87
+#: src/Events/NextEventWidget.php:107
 msgid "PHP date format for the day (e.g. \"l j F Y\")"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:100
+#: src/Events/NextEventWidget.php:120
 msgid "Description"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:106
+#: src/Events/NextEventWidget.php:126
 msgid "Show Description"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:108
+#: src/Events/NextEventWidget.php:128
 msgid "Yes"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:109
+#: src/Events/NextEventWidget.php:129
 msgid "No"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:118
+#: src/Events/NextEventWidget.php:138
 msgid "Card"
 msgstr ""
 
-#: src/Events/NextEventWidget.php:186
+#: src/Events/NextEventWidget.php:206
 msgid "Date & Time"
 msgstr ""
 
